@@ -1,8 +1,12 @@
 package com.azersun.uitemplates.showcase
 
 import androidx.compose.runtime.Composable
+import com.azersun.uitemplates.demos.addtocart.addToCartGroup
 import com.azersun.uitemplates.demos.backgrounds.backgroundsGroup
+import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
+import com.azersun.uitemplates.demos.datepicker.datePickerGroup
+import com.azersun.uitemplates.demos.dialog.dialogGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.inputerror.inputErrorGroup
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
@@ -14,7 +18,9 @@ import com.azersun.uitemplates.demos.menus.SideDrawerDemo
 import com.azersun.uitemplates.demos.menus.StaggeredDropdownDemo
 import com.azersun.uitemplates.demos.otp.otpGroup
 import com.azersun.uitemplates.demos.password.passwordStrengthGroup
+import com.azersun.uitemplates.demos.pullrefresh.pullRefreshGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
+import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
 import com.azersun.uitemplates.demos.viewas.viewAsMenuGroup
 
 class Demo(
@@ -57,4 +63,10 @@ val demoGroups: List<DemoGroup> = listOf(
     inputErrorGroup,
     otpGroup,
     passwordStrengthGroup,
+    swipeDeleteGroup,
+    addToCartGroup,
+    counterGroup,
+    pullRefreshGroup,
+    datePickerGroup,
+    dialogGroup,
 )
