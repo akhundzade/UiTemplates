@@ -1,3 +1,11 @@
+# UiTemplates
+
+A library of ~200 Compose Multiplatform UI animations (Android + iOS), shown in a browsable showcase app and
+meant to be copied into other projects.
+
+* [CATALOG.md](./CATALOG.md): every animation, what it looks like and which files to copy.
+* [AGENTS.md](./AGENTS.md): how to find, port and add animations.
+
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
 * [/iosApp](./iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
@@ -9,8 +17,6 @@ This is a Kotlin Multiplatform project targeting Android, iOS.
   - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
     For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
     the [iosMain](./shared/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./shared/src/jvmMain/kotlin)
-    folder is the appropriate location.
 
 ### Running the apps
 
