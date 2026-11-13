@@ -1,6 +1,7 @@
 package com.azersun.uitemplates.showcase
 
 import androidx.compose.runtime.Composable
+import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
 
 class Demo(
@@ -17,6 +18,12 @@ val demoGroups: List<DemoGroup> = listOf(
         "Kanban CRM",
         listOf(
             Demo("kanban", "Drag & drop board", "Lift, tilt, column glow, confetti and counters", { KanbanDemo() }),
+        ),
+    ),
+    DemoGroup(
+        "Theme switch",
+        listOf(
+            Demo("ink-theme", "Ink theme toggle", "Dark ↔ light spreads from the toggle like ink in water", { InkThemeDemo() }),
         ),
     ),
 )
