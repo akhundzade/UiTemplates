@@ -1,8 +1,10 @@
 package com.azersun.uitemplates.showcase
 
 import androidx.compose.runtime.Composable
+import com.azersun.uitemplates.demos.backgrounds.backgroundsGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
+import com.azersun.uitemplates.demos.inputerror.inputErrorGroup
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
 import com.azersun.uitemplates.demos.menus.BottomSheetDemo
 import com.azersun.uitemplates.demos.menus.CircleRevealDemo
@@ -10,6 +12,10 @@ import com.azersun.uitemplates.demos.menus.FabFanDemo
 import com.azersun.uitemplates.demos.menus.HamburgerMorphDemo
 import com.azersun.uitemplates.demos.menus.SideDrawerDemo
 import com.azersun.uitemplates.demos.menus.StaggeredDropdownDemo
+import com.azersun.uitemplates.demos.otp.otpGroup
+import com.azersun.uitemplates.demos.password.passwordStrengthGroup
+import com.azersun.uitemplates.demos.stepper.stepperGroup
+import com.azersun.uitemplates.demos.viewas.viewAsMenuGroup
 
 class Demo(
     val id: String,
@@ -44,5 +50,11 @@ val demoGroups: List<DemoGroup> = listOf(
             Demo("circle-reveal", "Circle reveal", "A circle grows from ☰ to fill the screen", { CircleRevealDemo() }),
         ),
     ),
+    viewAsMenuGroup,
     darkModeToggleGroup,
+    backgroundsGroup,
+    stepperGroup,
+    inputErrorGroup,
+    otpGroup,
+    passwordStrengthGroup,
 )
