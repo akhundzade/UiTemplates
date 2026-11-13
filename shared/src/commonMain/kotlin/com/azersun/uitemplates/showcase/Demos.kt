@@ -9,6 +9,7 @@ import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.datepicker.datePickerGroup
 import com.azersun.uitemplates.demos.dialog.dialogGroup
+import com.azersun.uitemplates.demos.fab2.floatingButtonGroup
 import com.azersun.uitemplates.demos.follow.followButtonGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.inputerror.inputErrorGroup
@@ -26,6 +27,7 @@ import com.azersun.uitemplates.demos.password.passwordStrengthGroup
 import com.azersun.uitemplates.demos.playbutton.playButtonGroup
 import com.azersun.uitemplates.demos.progresssteps.progressStepsGroup
 import com.azersun.uitemplates.demos.pullrefresh.pullRefreshGroup
+import com.azersun.uitemplates.demos.screentransition.screenTransitionGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
 import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
 import com.azersun.uitemplates.demos.textfield.textFieldGroup
@@ -85,4 +87,6 @@ val demoGroups: List<DemoGroup> = listOf(
     progressStepsGroup,
     textFieldGroup,
     likeGroup,
+    floatingButtonGroup,
+    screenTransitionGroup,
 )
