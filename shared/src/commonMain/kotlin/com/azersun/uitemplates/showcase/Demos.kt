@@ -12,6 +12,7 @@ import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.datepicker.datePickerGroup
 import com.azersun.uitemplates.demos.dialog.dialogGroup
+import com.azersun.uitemplates.demos.error1.errorPart1Group
 import com.azersun.uitemplates.demos.error2.errorPart2Group
 import com.azersun.uitemplates.demos.fab2.floatingButtonGroup
 import com.azersun.uitemplates.demos.follow.followButtonGroup
@@ -37,6 +38,7 @@ import com.azersun.uitemplates.demos.screentransition.screenTransitionGroup
 import com.azersun.uitemplates.demos.search.searchGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
 import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
+import com.azersun.uitemplates.demos.switch1.switchPart1Group
 import com.azersun.uitemplates.demos.switch2.switchPart2Group
 import com.azersun.uitemplates.demos.textfield.textFieldGroup
 import com.azersun.uitemplates.demos.viewas.viewAsMenuGroup
@@ -105,4 +107,6 @@ val demoGroups: List<DemoGroup> = listOf(
     switchPart2Group,
     errorPart2Group,
     likePart2Group,
+    switchPart1Group,
+    errorPart1Group,
 )
