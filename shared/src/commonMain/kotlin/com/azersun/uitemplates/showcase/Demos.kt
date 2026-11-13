@@ -1,6 +1,7 @@
 package com.azersun.uitemplates.showcase
 
 import androidx.compose.runtime.Composable
+import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
 import com.azersun.uitemplates.demos.menus.BottomSheetDemo
@@ -43,4 +44,5 @@ val demoGroups: List<DemoGroup> = listOf(
             Demo("circle-reveal", "Circle reveal", "A circle grows from ☰ to fill the screen", { CircleRevealDemo() }),
         ),
     ),
+    darkModeToggleGroup,
 )
