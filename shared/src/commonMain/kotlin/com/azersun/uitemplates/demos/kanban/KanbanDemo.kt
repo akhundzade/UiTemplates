@@ -139,15 +139,6 @@ private fun initialDeals() = listOf(
     Deal(8, "Banheiro e Lavand.", "Sofia Ribeiro", Color(0xFF2A2F3A), 21_400, Lead.Referral, Stage.Closed),
 )
 
-private val incomingDeals = listOf(
-    Deal(0, "Quarto Infantil", "Camila Duarte", Color(0xFFFFC26B), 14_200, Lead.Instagram, Stage.New),
-    Deal(0, "Lavanderia", "Bruno Lima", Color(0xFF8FD3FF), 9_600, Lead.WhatsApp, Stage.New),
-    Deal(0, "Área Gourmet", "Marina Costa", Color(0xFFB59CFF), 31_000, Lead.Referral, Stage.New),
-)
-
-/** Sales closed earlier this month, outside the board. */
-private const val EARLIER_SALES = 68_000
-
 private fun formatBrl(value: Int): String {
     val digits = value.toString().reversed().chunked(3).joinToString(".").reversed()
     return "R$ $digits"
@@ -156,27 +147,13 @@ private fun formatBrl(value: Int): String {
 @Stable
 private class BoardState {
     val columns = Stage.entries.associateWith { mutableStateListOf<Deal>() }
-    var nextId by mutableIntStateOf(100)
-    var incomingIndex by mutableIntStateOf(0)
-    var closedCount by mutableIntStateOf(0)
 
     fun reset() {
         columns.values.forEach { it.clear() }
         initialDeals().forEach { columns.getValue(it.stage).add(it) }
-        incomingIndex = 0
-        closedCount = 0
     }
 
     fun total(stage: Stage) = columns.getValue(stage).sumOf { it.value }
-    val openValue get() = Stage.entries.filter { it != Stage.Closed }.sumOf { total(it) }
-    val salesValue get() = EARLIER_SALES + total(Stage.Closed)
-    val openCount get() = Stage.entries.filter { it != Stage.Closed }.sumOf { columns.getValue(it).size }
-
-    fun addIncoming() {
-        val template = incomingDeals[incomingIndex % incomingDeals.size]
-        incomingIndex++
-        columns.getValue(Stage.New).add(0, template.copy(id = nextId++))
-    }
 }
 
 @Stable
@@ -235,7 +212,6 @@ fun KanbanDemo() {
     }
 
     fun celebrate(deal: Deal, center: Offset) {
-        board.closedCount++
         confetti.burst(center - origin)
         toast = deal
         scope.launch {
@@ -368,8 +344,6 @@ fun KanbanDemo() {
                     .clip(RoundedCornerShape(22.dp))
                     .background(BoardSurface),
             ) {
-                BoardHeader(onNew = { board.addIncoming() })
-                KpiRow(board, introStarted)
                 BoxWithConstraints(Modifier.weight(1f).fillMaxWidth()) {
                     val columnWidth = maxOf(236.dp, (maxWidth - 24.dp - 30.dp) / 4)
                     Row(
@@ -377,8 +351,7 @@ fun KanbanDemo() {
                             .fillMaxSize()
                             .onGloballyPositioned { viewport = it.boundsInRoot() }
                             .horizontalScroll(boardScroll)
-                            .padding(horizontal = 12.dp)
-                            .padding(bottom = 12.dp),
+                            .padding(12.dp),
                         horizontalArrangement = Arrangement.spacedBy(10.dp),
                     ) {
                         Stage.entries.forEachIndexed { columnIndex, stage ->
@@ -433,7 +406,7 @@ fun KanbanDemo() {
 
         AnimatedVisibility(
             visible = toast != null,
-            modifier = Modifier.align(Alignment.TopCenter).padding(top = 200.dp),
+            modifier = Modifier.align(Alignment.TopCenter).padding(top = 28.dp),
             enter = scaleIn(spring(dampingRatio = 0.6f, stiffness = 500f), initialScale = 0.8f) +
                 fadeIn(tween(160)) + slideInVertically(spring(stiffness = 500f)) { -it / 3 },
             exit = scaleOut(tween(220), targetScale = 0.92f) + fadeOut(tween(220)),
@@ -465,125 +438,6 @@ private fun Offset.round() = IntOffset(x.roundToInt(), y.roundToInt())
 
 // boundsInRoot() clips to visible ancestors, which collapses off-screen columns and cards.
 private fun LayoutCoordinates.unclippedBoundsInRoot() = Rect(positionInRoot(), size.toSize())
-
-@Composable
-private fun BoardHeader(onNew: () -> Unit) {
-    Column(Modifier.fillMaxWidth().padding(start = 14.dp, end = 14.dp, top = 14.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Logo()
-            Text(
-                "Orçamentos planejados",
-                color = Ink,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 15.sp,
-                modifier = Modifier.padding(start = 8.dp).weight(1f),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Row(
-                Modifier
-                    .clip(RoundedCornerShape(50))
-                    .background(Color.White)
-                    .border(1.dp, Color(0xFFE1E4EA), RoundedCornerShape(50))
-                    .clickable(onClick = onNew)
-                    .padding(horizontal = 12.dp, vertical = 7.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text("+", color = Ink, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                Text(" Novo orçamento", color = Ink, fontSize = 12.sp, fontWeight = FontWeight.Medium)
-            }
-        }
-        Row(Modifier.padding(top = 10.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            listOf("Todos", "Parados", "Este mês").forEachIndexed { i, label ->
-                val selected = i == 0
-                Text(
-                    label,
-                    color = if (selected) Color.White else Muted,
-                    fontSize = 11.sp,
-                    fontWeight = FontWeight.Medium,
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(50))
-                        .background(if (selected) Ink else Color.White)
-                        .padding(horizontal = 11.dp, vertical = 5.dp),
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun Logo() {
-    Canvas(Modifier.size(24.dp)) {
-        val stroke = 3.2.dp.toPx()
-        val path = androidx.compose.ui.graphics.Path().apply {
-            moveTo(size.width * 0.08f, size.height * 0.68f)
-            cubicTo(size.width * 0.25f, size.height * 0.1f, size.width * 0.42f, size.height * 0.1f, size.width * 0.5f, size.height * 0.5f)
-            cubicTo(size.width * 0.58f, size.height * 0.9f, size.width * 0.75f, size.height * 0.9f, size.width * 0.92f, size.height * 0.32f)
-        }
-        drawPath(
-            path,
-            Brush.linearGradient(listOf(Color(0xFF1C7CFF), Color(0xFF22C3EE))),
-            style = androidx.compose.ui.graphics.drawscope.Stroke(stroke, cap = StrokeCap.Round),
-        )
-    }
-}
-
-@Composable
-private fun KpiRow(board: BoardState, introStarted: Boolean) {
-    Row(
-        Modifier.fillMaxWidth().padding(14.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        val open = countUp(if (introStarted) board.openValue else 0, 1200)
-        val conversion = countUp(if (introStarted) 28 + board.closedCount * 2 else 0, 1200)
-        val sales = countUp(if (introStarted) board.salesValue else 0, 1200, delayMillis = 100)
-        KpiCard("Orçamentos abertos", formatBrl(open), "+${board.openCount} projetos", Color(0xFF2A2F3A), Modifier.weight(1f))
-        KpiCard("Conversão", "$conversion%", "+2,1 pp", Color(0xFF7C6CF2), Modifier.weight(0.8f))
-        KpiCard("Vendas no mês", formatBrl(sales), "+18%", Color(0xFF22B07D), Modifier.weight(1f))
-    }
-}
-
-@Composable
-private fun KpiCard(label: String, value: String, badge: String, tint: Color, modifier: Modifier) {
-    Column(
-        modifier
-            .clip(RoundedCornerShape(14.dp))
-            .background(Color.White)
-            .padding(10.dp),
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(18.dp).clip(RoundedCornerShape(6.dp)).background(tint))
-            Text(
-                label,
-                color = Muted,
-                fontSize = 9.sp,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.padding(start = 6.dp),
-            )
-        }
-        Text(
-            value,
-            color = Ink,
-            fontWeight = FontWeight.Bold,
-            fontSize = 15.sp,
-            maxLines = 1,
-            modifier = Modifier.padding(top = 6.dp),
-        )
-        Text(
-            badge,
-            color = Color(0xFF1F9D5C),
-            fontSize = 9.sp,
-            fontWeight = FontWeight.Medium,
-            maxLines = 1,
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .clip(RoundedCornerShape(50))
-                .background(Color(0xFFDCF5E8))
-                .padding(horizontal = 6.dp, vertical = 1.dp),
-        )
-    }
-}
 
 @Composable
 private fun StageColumn(
