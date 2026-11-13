@@ -27,7 +27,9 @@ import com.azersun.uitemplates.demos.password.passwordStrengthGroup
 import com.azersun.uitemplates.demos.playbutton.playButtonGroup
 import com.azersun.uitemplates.demos.progresssteps.progressStepsGroup
 import com.azersun.uitemplates.demos.pullrefresh.pullRefreshGroup
+import com.azersun.uitemplates.demos.receipt.receiptGroup
 import com.azersun.uitemplates.demos.screentransition.screenTransitionGroup
+import com.azersun.uitemplates.demos.search.searchGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
 import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
 import com.azersun.uitemplates.demos.textfield.textFieldGroup
@@ -89,4 +91,6 @@ val demoGroups: List<DemoGroup> = listOf(
     likeGroup,
     floatingButtonGroup,
     screenTransitionGroup,
+    receiptGroup,
+    searchGroup,
 )
