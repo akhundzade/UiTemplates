@@ -1,6 +1,7 @@
 package com.azersun.uitemplates.showcase
 
 import androidx.compose.runtime.Composable
+import com.azersun.uitemplates.demos.kanban.KanbanDemo
 
 class Demo(
     val id: String,
@@ -11,4 +12,11 @@ class Demo(
 
 class DemoGroup(val title: String, val demos: List<Demo>)
 
-val demoGroups: List<DemoGroup> = listOf()
+val demoGroups: List<DemoGroup> = listOf(
+    DemoGroup(
+        "Kanban CRM",
+        listOf(
+            Demo("kanban", "Drag & drop board", "Lift, tilt, column glow, confetti and counters", { KanbanDemo() }),
+        ),
+    ),
+)
