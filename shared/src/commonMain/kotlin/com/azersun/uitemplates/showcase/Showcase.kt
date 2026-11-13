@@ -165,7 +165,7 @@ private fun CategoryButton(category: DemoCategory, onClick: () -> Unit) {
             Text(category.title, color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
             Text(category.blurb, color = Muted, fontSize = 13.sp, lineHeight = 17.sp)
             Text(
-                "${category.demoCount} animations · ${category.groups.size} sets",
+                "${plural(category.demoCount, "animation")} · ${plural(category.groups.size, "set")}",
                 color = Accent,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Medium,
@@ -283,3 +283,5 @@ private fun DemoScreen(demo: Demo, onBack: () -> Unit) {
         }
     }
 }
+
+private fun plural(count: Int, noun: String) = if (count == 1) "1 $noun" else "$count ${noun}s"
