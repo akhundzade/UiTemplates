@@ -21,7 +21,7 @@ The app in this repo is only a showcase: a list of categories → sets → one b
    building from scratch. Don't claim an animation exists without having found its entry.
 
 To see an animation run: `./gradlew :androidApp:installDebug` on a device or emulator, or open `iosApp/`
-in Xcode and run on a simulator. Home → category → set → tap the animation; it plays once by itself.
+in Xcode and run on a simulator. Home → category → set → tap the animation; most play once by themselves, the rest wait for a tap.
 
 ## How a set is laid out
 
