@@ -200,8 +200,9 @@ fun KanbanDemo() {
             deal.id != drag.deal?.id && (cardBounds[deal.id]?.center?.y ?: Float.MAX_VALUE) < pointer.y
         }
 
-    fun startDrag(deal: Deal, pointer: Offset) {
-        val bounds = cardBounds[deal.id] ?: return
+    fun startDrag(deal: Deal, pointer: Offset): Boolean {
+        if (drag.active) return false
+        val bounds = cardBounds[deal.id] ?: return false
         drag.deal = deal
         drag.from = deal.stage
         drag.pointer = pointer
@@ -209,6 +210,7 @@ fun KanbanDemo() {
         drag.cardWidthPx = bounds.width.roundToInt()
         drag.hover = deal.stage
         scope.launch { drag.lift.animateTo(1f, spring(dampingRatio = 0.55f, stiffness = 420f)) }
+        return true
     }
 
     fun celebrate(deal: Deal, center: Offset) {
@@ -221,6 +223,8 @@ fun KanbanDemo() {
     }
 
     suspend fun drop() {
+        // A second drop for the same drag would insert the card twice.
+        if (drag.landingId != null) return
         val deal = drag.deal ?: return
         val from = drag.from
         val to = drag.hover ?: from
@@ -265,7 +269,11 @@ fun KanbanDemo() {
         }
         val bounds = cardBounds[dealId] ?: return
         drag.scripted = true
-        startDrag(deal, bounds.center)
+        if (!startDrag(deal, bounds.center)) {
+            // The user is already holding a card; let them have the board.
+            drag.scripted = false
+            return
+        }
         delay(380)
         val startPointer = drag.pointer
         val column = columnBounds[to] ?: return
@@ -369,7 +377,7 @@ fun KanbanDemo() {
                                     .fillMaxHeight()
                                     .onGloballyPositioned { columnBounds[stage] = it.unclippedBoundsInRoot() },
                                 onCardPositioned = { id, rect -> cardBounds[id] = rect },
-                                onDragStart = { deal, pointer -> if (!drag.active) startDrag(deal, pointer) },
+                                onDragStart = { deal, pointer -> startDrag(deal, pointer) },
                                 onDrag = { delta ->
                                     drag.pointer += delta
                                     drag.tiltTarget = (delta.x * 0.6f).coerceIn(-8f, 8f)
@@ -451,7 +459,7 @@ private fun StageColumn(
     introStarted: Boolean,
     modifier: Modifier,
     onCardPositioned: (Int, Rect) -> Unit,
-    onDragStart: (Deal, Offset) -> Unit,
+    onDragStart: (Deal, Offset) -> Boolean,
     onDrag: (Offset) -> Unit,
     onDragEnd: () -> Unit,
 ) {
@@ -529,13 +537,18 @@ private fun StageColumn(
                                 onCardPositioned(deal.id, bounds)
                             }
                             .pointerInput(deal.id) {
+                                // Only the gesture that actually started the drag may move or drop it;
+                                // a long-press while another card is in flight is ignored end to end.
+                                var owner = false
                                 detectDragGesturesAfterLongPress(
-                                    onDragStart = { local -> onDragStart(deal, rootTopLeft + local) },
-                                    onDragEnd = onDragEnd,
-                                    onDragCancel = onDragEnd,
+                                    onDragStart = { local -> owner = onDragStart(deal, rootTopLeft + local) },
+                                    onDragEnd = { if (owner) onDragEnd(); owner = false },
+                                    onDragCancel = { if (owner) onDragEnd(); owner = false },
                                     onDrag = { change, delta ->
-                                        change.consume()
-                                        onDrag(delta)
+                                        if (owner) {
+                                            change.consume()
+                                            onDrag(delta)
+                                        }
                                     },
                                 )
                             },
