@@ -3,6 +3,7 @@ package com.azersun.uitemplates.showcase
 import androidx.compose.runtime.Composable
 import com.azersun.uitemplates.demos.addtocart.addToCartGroup
 import com.azersun.uitemplates.demos.backgrounds.backgroundsGroup
+import com.azersun.uitemplates.demos.colorpicker.colorPickerGroup
 import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.datepicker.datePickerGroup
@@ -20,6 +21,7 @@ import com.azersun.uitemplates.demos.menus.SideDrawerDemo
 import com.azersun.uitemplates.demos.menus.StaggeredDropdownDemo
 import com.azersun.uitemplates.demos.otp.otpGroup
 import com.azersun.uitemplates.demos.password.passwordStrengthGroup
+import com.azersun.uitemplates.demos.playbutton.playButtonGroup
 import com.azersun.uitemplates.demos.pullrefresh.pullRefreshGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
 import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
@@ -73,4 +75,6 @@ val demoGroups: List<DemoGroup> = listOf(
     dialogGroup,
     minimalMenuGroup,
     followButtonGroup,
+    colorPickerGroup,
+    playButtonGroup,
 )
