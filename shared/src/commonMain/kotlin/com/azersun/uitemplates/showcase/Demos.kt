@@ -3,6 +3,7 @@ package com.azersun.uitemplates.showcase
 import androidx.compose.runtime.Composable
 import com.azersun.uitemplates.demos.addtocart.addToCartGroup
 import com.azersun.uitemplates.demos.backgrounds.backgroundsGroup
+import com.azersun.uitemplates.demos.button2.buttonPart2Group
 import com.azersun.uitemplates.demos.buttonstate.buttonStateGroup
 import com.azersun.uitemplates.demos.checkbox1.checkboxPart1Group
 import com.azersun.uitemplates.demos.checkbox2.checkboxPart2Group
@@ -34,6 +35,7 @@ import com.azersun.uitemplates.demos.screentransition.screenTransitionGroup
 import com.azersun.uitemplates.demos.search.searchGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
 import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
+import com.azersun.uitemplates.demos.switch2.switchPart2Group
 import com.azersun.uitemplates.demos.textfield.textFieldGroup
 import com.azersun.uitemplates.demos.viewas.viewAsMenuGroup
 
@@ -97,4 +99,6 @@ val demoGroups: List<DemoGroup> = listOf(
     searchGroup,
     checkboxPart1Group,
     checkboxPart2Group,
+    buttonPart2Group,
+    switchPart2Group,
 )
