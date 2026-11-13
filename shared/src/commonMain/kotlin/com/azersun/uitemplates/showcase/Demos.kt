@@ -7,9 +7,11 @@ import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.datepicker.datePickerGroup
 import com.azersun.uitemplates.demos.dialog.dialogGroup
+import com.azersun.uitemplates.demos.follow.followButtonGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.inputerror.inputErrorGroup
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
+import com.azersun.uitemplates.demos.menulight.minimalMenuGroup
 import com.azersun.uitemplates.demos.menus.BottomSheetDemo
 import com.azersun.uitemplates.demos.menus.CircleRevealDemo
 import com.azersun.uitemplates.demos.menus.FabFanDemo
@@ -69,4 +71,6 @@ val demoGroups: List<DemoGroup> = listOf(
     pullRefreshGroup,
     datePickerGroup,
     dialogGroup,
+    minimalMenuGroup,
+    followButtonGroup,
 )
