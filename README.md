@@ -15,6 +15,7 @@
   <img alt="Android" src="https://img.shields.io/badge/Android-24%2B-3DDC84?logo=android&logoColor=white" />
   <img alt="iOS" src="https://img.shields.io/badge/iOS-18.2%2B-000000?logo=apple&logoColor=white" />
   <img alt="Animations" src="https://img.shields.io/badge/animations-201-8B7CFF" />
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue" /></a>
 </p>
 
 ---
@@ -151,3 +152,8 @@ and rebuilt from scratch. The design credit belongs to their creators:
 
 If you created one of these designs and would like the credit changed or an animation removed, please
 [open an issue](https://github.com/akhundzade/UiTemplates/issues).
+
+## License
+
+The code is released under the [MIT License](LICENSE): use it in personal and commercial projects. The original
+designs belong to the creators credited above.
