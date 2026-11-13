@@ -52,92 +52,88 @@ Press feedback, state changes, play, follow and add to cart.
 
 ### Button · State change
 
-Copy folder `demos/buttonstate/` except `ButtonStateDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/buttonstate/` except `ButtonStateDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Liquid rise** (`buttonstate-liquid`): The next state's colour rises inside the pill as a wavy liquid; the label swaps at half full. → `LiquidRiseDemo()` in `demos/buttonstate/LiquidRiseDemo.kt`
-  Copy `LiquidRiseDemo.kt`, `ButtonStateStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `LiquidRiseDemo.kt`; from `ButtonStateStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayPressMillis`, `AutoplayTaps`, `ButtonStateScene`, `GlyphGap`, `GlyphSize`, `LabelText`, `Pill`, `PillHeight`, `PillWidth`, `PlayState`, `PressState`, `StartState`, `StateGlyph`, `StateLabel`, `drawStateGlyph`. Strip `MenuStage` (showcase frame).
 - **Magnetic pull** (`buttonstate-magnetic`): While pressed the pill leans toward your finger; on release the label is sucked in and the new one springs out. → `MagneticPullDemo()` in `demos/buttonstate/MagneticPullDemo.kt`
-  Copy `MagneticPullDemo.kt`, `ButtonStateStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `MagneticPullDemo.kt`; from `ButtonStateStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayPressMillis`, `AutoplayTaps`, `ButtonStateScene`, `GlyphGap`, `GlyphSize`, `LabelText`, `Pill`, `PillHeight`, `PillWidth`, `PlayState`, `PressState`, `StartState`, `StateGlyph`, `StateLabel`, `coerceIn`, `drawStateGlyph`. Strip `MenuStage` (showcase frame).
 - **Barrel roll** (`buttonstate-barrel`): The pill rolls up like a barrel: the old face tips back over the top as the new one comes up from below. → `BarrelRollDemo()` in `demos/buttonstate/BarrelRollDemo.kt`
-  Copy `BarrelRollDemo.kt`, `ButtonStateStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `BarrelRollDemo.kt`; from `ButtonStateStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayPressMillis`, `AutoplayTaps`, `ButtonStateScene`, `GlyphGap`, `GlyphSize`, `LabelText`, `Pill`, `PillFace`, `PillHeight`, `PillWidth`, `PlayState`, `PressState`, `StartState`, `StateGlyph`, `StateLabel`, `coerceIn`, `drawStateGlyph`. Strip `MenuStage` (showcase frame).
 - **Pixel scatter** (`buttonstate-pixels`): The old state breaks into tiny pixels that fly off from your tap and fade, revealing the new state underneath. → `PixelScatterDemo()` in `demos/buttonstate/PixelScatterDemo.kt`
-  Copy `PixelScatterDemo.kt`, `ButtonStateStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `PixelScatterDemo.kt`; from `ButtonStateStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayPressMillis`, `AutoplayTaps`, `ButtonStateScene`, `GlyphGap`, `GlyphSize`, `LabelText`, `Pill`, `PillFace`, `PillHeight`, `PillWidth`, `PlayState`, `PressState`, `StartState`, `StateGlyph`, `StateLabel`, `coerceIn`, `drawStateGlyph`. Strip `MenuStage` (showcase frame).
 - **Edge comet** (`buttonstate-comet`): Two comets race around the pill's edge in opposite directions, dragging the new colour behind them. → `EdgeCometDemo()` in `demos/buttonstate/EdgeCometDemo.kt`
-  Copy `EdgeCometDemo.kt`, `ButtonStateStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `EdgeCometDemo.kt`; from `ButtonStateStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayPressMillis`, `AutoplayTaps`, `ButtonStateScene`, `GlyphGap`, `GlyphSize`, `LabelText`, `Pill`, `PillFace`, `PillHeight`, `PillWidth`, `PlayState`, `PressState`, `StartState`, `StateGlyph`, `StateLabel`, `arcPoint`, `drawStateGlyph`, `stadiumPerimeter`, `stadiumPoint`. Strip `MenuStage` (showcase frame).
 - **Letter drop** (`buttonstate-letters`): The old label's letters drop out one by one; the new letters fall in from above and bounce. → `LetterDropDemo()` in `demos/buttonstate/LetterDropDemo.kt`
-  Copy `LetterDropDemo.kt`, `ButtonStateStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `LetterDropDemo.kt`; from `ButtonStateStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayPressMillis`, `AutoplayTaps`, `ButtonStateScene`, `GlyphGap`, `GlyphSize`, `LabelText`, `Pill`, `PillHeight`, `PillWidth`, `PlayState`, `PressState`, `StartState`, `StateGlyph`, `coerceIn`, `drawStateGlyph`. Strip `MenuStage` (showcase frame).
 
 ### Button · Part 2
 
-Copy folder `demos/button2/` except `ButtonPart2Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `common/Confetti.kt`, `demos/menus/MenuStyle.kt`.
+Copy folder `demos/button2/` except `ButtonPart2Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Hold to confirm** (`button2-hold`): Hold it down: a ring fills around the button, then it turns into a ✓. → `HoldToConfirmDemo()` in `demos/button2/HoldToConfirmDemo.kt`
-  Copy `HoldToConfirmDemo.kt`, `ButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage`, `MenuStage` (showcase frame).
+  Copy `HoldToConfirmDemo.kt`; from `ButtonStyle.kt` only `drawCheck`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage` (showcase frame).
 - **Paper plane** (`button2-plane`): The paper plane flies off with a trail and the label flips to "Sent!". → `PaperPlaneDemo()` in `demos/button2/PaperPlaneDemo.kt`
-  Copy `PaperPlaneDemo.kt`, `ButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage`, `MenuStage` (showcase frame).
+  Copy `PaperPlaneDemo.kt`; from `ButtonStyle.kt` only `mix`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage` (showcase frame).
 - **Confetti burst** (`button2-confetti`): A tap bursts confetti out of the button; the pieces flutter and fall. → `ConfettiBurstDemo()` in `demos/button2/ConfettiBurstDemo.kt`
   Copy `ConfettiBurstDemo.kt`; from `common/Confetti.kt` only `Confetti`, `rememberConfettiState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage` (showcase frame).
 - **Copy feedback** (`button2-copy`): The copy icon morphs into a ✓ and a "Copied!" tooltip pops up. → `CopyFeedbackDemo()` in `demos/button2/CopyFeedbackDemo.kt`
-  Copy `CopyFeedbackDemo.kt`, `ButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `ButtonStage`, `MenuStage` (showcase frame).
+  Copy `CopyFeedbackDemo.kt`; from `ButtonStyle.kt` only `drawCheck`, `mix`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `ButtonStage` (showcase frame).
 - **Shine sweep** (`button2-shine`): A diagonal shine sweeps across the button and sparkles twinkle. → `ShineSweepDemo()` in `demos/button2/ShineSweepDemo.kt`
-  Copy `ShineSweepDemo.kt`, `ButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage`, `MenuStage` (showcase frame).
+  Copy `ShineSweepDemo.kt`; from `ButtonStyle.kt` only `Orange`, `mix`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage` (showcase frame).
 - **Slide to confirm** (`button2-slide`): Drag the knob to the end: the track fills and the knob turns into a ✓. → `SlideToConfirmDemo()` in `demos/button2/SlideToConfirmDemo.kt`
-  Copy `SlideToConfirmDemo.kt`, `ButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage`, `MenuStage` (showcase frame).
+  Copy `SlideToConfirmDemo.kt`; from `ButtonStyle.kt` only `drawCheck`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ButtonStage` (showcase frame).
 
 ### Play button
 
-Copy folder `demos/playbutton/` except `PlayButtonDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/playbutton/` except `PlayButtonDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Triangle split** (`playbutton-split`): The play triangle splits into two halves that spring into the pause bars, and back. → `TriangleSplitDemo()` in `demos/playbutton/TriangleSplitDemo.kt`
-  Copy `TriangleSplitDemo.kt`, `PlayButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `TriangleSplitDemo.kt`; from `PlayButtonStyle.kt` only `AutoplayDelayMillis`, `AutoplayPlayMillis`, `BarHeights`, `ButtonSize`, `CardShape`, `DimBar`, `PauseQuads`, `PlayBlue`, `PlayBrush`, `PlayDisc`, `PlayGlow`, `PlayQuads`, `PlayViolet`, `PlayerScene`, `PlayerState`, `StartProgress`, `TrackSeconds`, `WaveColors`, `Waveform`, `drawPlayPause`, `rememberPlayerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Coin flip** (`playbutton-coin`): The button flips like a coin, edge-on for a moment, and lands showing the new icon on its back. → `CoinFlipDemo()` in `demos/playbutton/CoinFlipDemo.kt`
-  Copy `CoinFlipDemo.kt`, `PlayButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `CoinFlipDemo.kt`; from `PlayButtonStyle.kt` only `AutoplayDelayMillis`, `AutoplayPlayMillis`, `BarHeights`, `ButtonSize`, `CardShape`, `DimBar`, `PauseQuads`, `PlayBlue`, `PlayBrush`, `PlayDisc`, `PlayGlow`, `PlayQuads`, `PlayViolet`, `PlayerScene`, `PlayerState`, `StartProgress`, `TrackSeconds`, `WaveColors`, `Waveform`, `drawPlayPause`, `rememberPlayerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Echo rings** (`playbutton-echo`): Every tap sends three rings echoing out from the button, 120 ms apart, fading as they grow. → `EchoRingsDemo()` in `demos/playbutton/EchoRingsDemo.kt`
-  Copy `EchoRingsDemo.kt`, `PlayButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `EchoRingsDemo.kt`; from `PlayButtonStyle.kt` only `AutoplayDelayMillis`, `AutoplayPlayMillis`, `BarHeights`, `ButtonSize`, `CardShape`, `DimBar`, `PauseQuads`, `PlayBlue`, `PlayBrush`, `PlayButtonFace`, `PlayDisc`, `PlayGlow`, `PlayPauseCrossfade`, `PlayQuads`, `PlayViolet`, `PlayerScene`, `PlayerState`, `StartProgress`, `TrackSeconds`, `WaveColors`, `Waveform`, `drawPlayPause`, `rememberPlayerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Dancing wave** (`playbutton-wave`): While playing the waveform bars dance to the beat in a travelling wave, then settle back on pause. → `DancingWaveDemo()` in `demos/playbutton/DancingWaveDemo.kt`
-  Copy `DancingWaveDemo.kt`, `PlayButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DancingWaveDemo.kt`; from `PlayButtonStyle.kt` only `AutoplayDelayMillis`, `AutoplayPlayMillis`, `BarHeights`, `ButtonSize`, `CardShape`, `DimBar`, `PauseQuads`, `PlayBlue`, `PlayBrush`, `PlayButtonFace`, `PlayDisc`, `PlayGlow`, `PlayPauseCrossfade`, `PlayQuads`, `PlayViolet`, `PlayerScene`, `PlayerState`, `StartProgress`, `TrackSeconds`, `WaveColors`, `Waveform`, `drawPlayPause`, `rememberPlayerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Comet arc** (`playbutton-comet`): While playing a glowing comet circles the button; on pause it slows down and fades away. → `CometArcDemo()` in `demos/playbutton/CometArcDemo.kt`
-  Copy `CometArcDemo.kt`, `PlayButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `CometArcDemo.kt`; from `PlayButtonStyle.kt` only `AutoplayDelayMillis`, `AutoplayPlayMillis`, `BarHeights`, `ButtonSize`, `CardShape`, `DimBar`, `PauseQuads`, `PlayBlue`, `PlayBrush`, `PlayButtonFace`, `PlayDisc`, `PlayGlow`, `PlayPauseCrossfade`, `PlayQuads`, `PlayViolet`, `PlayerScene`, `PlayerState`, `StartProgress`, `TrackSeconds`, `WaveColors`, `Waveform`, `drawPlayPause`, `rememberPlayerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Elastic squash** (`playbutton-squash`): On tap the button squashes and wobbles like jelly before settling, the icon cross-fading. → `ElasticSquashDemo()` in `demos/playbutton/ElasticSquashDemo.kt`
-  Copy `ElasticSquashDemo.kt`, `PlayButtonStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ElasticSquashDemo.kt`; from `PlayButtonStyle.kt` only `AutoplayDelayMillis`, `AutoplayPlayMillis`, `BarHeights`, `ButtonSize`, `CardShape`, `DimBar`, `PauseQuads`, `PlayBlue`, `PlayBrush`, `PlayButtonFace`, `PlayDisc`, `PlayGlow`, `PlayPauseCrossfade`, `PlayQuads`, `PlayViolet`, `PlayerScene`, `PlayerState`, `StartProgress`, `TrackSeconds`, `WaveColors`, `Waveform`, `drawPlayPause`, `rememberPlayerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Follow button
 
-Copy folder `demos/follow/` except `FollowButtonDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/follow/` except `FollowButtonDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Coin flip** (`follow-coin`): The button flips over like a coin to show its other side. → `CoinFlipFollowDemo()` in `demos/follow/CoinFlipFollowDemo.kt`
-  Copy `CoinFlipFollowDemo.kt`, `FollowStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `CoinFlipFollowDemo.kt`; from `FollowStyle.kt` only `AutoplayDelayMillis`, `AutoplayUnfollowDelayMillis`, `Avatar`, `AvatarSize`, `BaseFollowers`, `ButtonHeight`, `CountStyle`, `CountTracker`, `FollowFace`, `FollowGradient`, `FollowIcon`, `FollowLabel`, `FollowScene`, `FollowState`, `FollowingBorder`, `FollowingSurface`, `RollingCount`, `drawFollowIcon`, `faceAt`, `followBackground`, `labelColor`, `labelOf`, `tiltAt`, `toSize`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Blinds turn** (`follow-blinds`): Ten slats turn one by one from the middle outward, like blinds, to the other state. → `BlindsTurnFollowDemo()` in `demos/follow/BlindsTurnFollowDemo.kt`
-  Copy `BlindsTurnFollowDemo.kt`, `FollowStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BlindsTurnFollowDemo.kt`; from `FollowStyle.kt` only `AutoplayDelayMillis`, `AutoplayUnfollowDelayMillis`, `Avatar`, `AvatarSize`, `BaseFollowers`, `ButtonHeight`, `CountStyle`, `CountTracker`, `FollowFace`, `FollowGradient`, `FollowIcon`, `FollowLabel`, `FollowScene`, `FollowState`, `FollowingBorder`, `FollowingSurface`, `RollingCount`, `drawFollowIcon`, `faceAt`, `followBackground`, `labelColor`, `labelOf`, `tiltAt`, `toSize`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Letter drop** (`follow-letters`): The old label's letters fall away and the new ones drop in from above and bounce. → `LetterDropFollowDemo()` in `demos/follow/LetterDropFollowDemo.kt`
-  Copy `LetterDropFollowDemo.kt`, `FollowStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `LetterDropFollowDemo.kt`; from `FollowStyle.kt` only `AutoplayDelayMillis`, `AutoplayUnfollowDelayMillis`, `Avatar`, `AvatarSize`, `BaseFollowers`, `ButtonHeight`, `CountStyle`, `CountTracker`, `FollowGradient`, `FollowIcon`, `FollowScene`, `FollowState`, `FollowingBorder`, `FollowingSurface`, `Pill`, `RollingCount`, `drawFollowIcon`, `followBackground`, `labelColor`, `labelOf`, `toSize`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Plus one** (`follow-plusone`): A +1 chip flies from the button up to the follower count, which then ticks up. → `PlusOneFollowDemo()` in `demos/follow/PlusOneFollowDemo.kt`
-  Copy `PlusOneFollowDemo.kt`, `FollowStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `PlusOneFollowDemo.kt`; from `FollowStyle.kt` only `AutoplayDelayMillis`, `AutoplayUnfollowDelayMillis`, `Avatar`, `AvatarSize`, `BaseFollowers`, `ButtonHeight`, `CountStyle`, `CountTracker`, `FadingFollowButton`, `FollowGradient`, `FollowIcon`, `FollowLabel`, `FollowScene`, `FollowState`, `FollowingBorder`, `FollowingSurface`, `Pill`, `RollingCount`, `drawFollowIcon`, `followBackground`, `labelColor`, `labelOf`, `toSize`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Avatar ring** (`follow-ring`): A violet-to-cyan ring draws itself around the avatar, then fades out. → `AvatarRingFollowDemo()` in `demos/follow/AvatarRingFollowDemo.kt`
-  Copy `AvatarRingFollowDemo.kt`, `FollowStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `AvatarRingFollowDemo.kt`; from `FollowStyle.kt` only `AutoplayDelayMillis`, `AutoplayUnfollowDelayMillis`, `Avatar`, `AvatarSize`, `BaseFollowers`, `ButtonHeight`, `CountStyle`, `CountTracker`, `FadingFollowButton`, `FollowGradient`, `FollowIcon`, `FollowLabel`, `FollowScene`, `FollowState`, `FollowingBorder`, `FollowingSurface`, `RollingCount`, `drawFollowIcon`, `followBackground`, `labelColor`, `labelOf`, `toSize`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Stamp press** (`follow-stamp`): The new state slams down like a stamp and a shock ring ripples out from the button. → `StampPressFollowDemo()` in `demos/follow/StampPressFollowDemo.kt`
-  Copy `StampPressFollowDemo.kt`, `FollowStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `StampPressFollowDemo.kt`; from `FollowStyle.kt` only `AutoplayDelayMillis`, `AutoplayUnfollowDelayMillis`, `Avatar`, `AvatarSize`, `BaseFollowers`, `ButtonHeight`, `CountStyle`, `CountTracker`, `FollowFace`, `FollowGradient`, `FollowIcon`, `FollowLabel`, `FollowScene`, `FollowState`, `FollowingBorder`, `FollowingSurface`, `RollingCount`, `drawFollowIcon`, `followBackground`, `labelColor`, `labelOf`, `toSize`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Add to cart
 
-Copy folder `demos/addtocart/` except `AddToCartDemos.kt` (showcase registration). For a single animation use its own Copy line below.
+Copy folder `demos/addtocart/` except `AddToCartDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Fly to cart** (`addtocart-fly`): A mini thumbnail jumps from the product and arcs into the cart; the cart dips and the badge ticks up. → `FlyToCartDemo()` in `demos/addtocart/FlyToCartDemo.kt`
-  Copy `FlyToCartDemo.kt`, `CartStyle.kt`.
+  Copy `FlyToCartDemo.kt`; from `CartStyle.kt` only `AddButton`, `AddLabel`, `AutoplayDelayMillis`, `BasketCenter`, `ButtonHeight`, `Caps`, `CartColors`, `CartScene`, `CartWithBadge`, `CountBadge`, `IconStroke`, `Pill`, `PillButton`, `ProductScene`, `drawCart`, `drawMug`, `drawPlus`, `lerp`, `quadratic`, `rememberCartScene`. Strip `CartStage` (showcase frame).
 - **Qty stepper** (`addtocart-stepper`): The button morphs into a stepper: trash, count and a filled +. Trash turns it back. → `QtyStepperDemo()` in `demos/addtocart/QtyStepperDemo.kt`
-  Copy `QtyStepperDemo.kt`, `CartStyle.kt`.
+  Copy `QtyStepperDemo.kt`; from `CartStyle.kt` only `AddLabel`, `AutoplayDelayMillis`, `ButtonHeight`, `Caps`, `CartColors`, `CartScene`, `CartWithBadge`, `CountBadge`, `IconStroke`, `Pill`, `PillButton`, `ProductScene`, `drawCart`, `drawMug`, `drawPlus`, `drawTrashLine`, `rememberCartScene`. Strip `CartStage` (showcase frame).
 - **Badge hop** (`addtocart-hop`): A dot flies from the button to the cart; the badge hops and a +1 floats up. → `BadgeHopDemo()` in `demos/addtocart/BadgeHopDemo.kt`
-  Copy `BadgeHopDemo.kt`, `CartStyle.kt`.
+  Copy `BadgeHopDemo.kt`; from `CartStyle.kt` only `AddButton`, `AddLabel`, `AutoplayDelayMillis`, `ButtonHeight`, `Caps`, `CartColors`, `CartScene`, `CartWithBadge`, `CountBadge`, `IconStroke`, `Pill`, `PillButton`, `ProductScene`, `drawCart`, `drawMug`, `drawPlus`, `lerp`, `quadratic`, `rememberCartScene`. Strip `CartStage` (showcase frame).
 - **Cart run** (`addtocart-run`): The label slides away, a little cart runs in, catches a dropped item, and the label returns. → `CartRunDemo()` in `demos/addtocart/CartRunDemo.kt`
-  Copy `CartRunDemo.kt`, `CartStyle.kt`.
+  Copy `CartRunDemo.kt`; from `CartStyle.kt` only `AddLabel`, `AutoplayDelayMillis`, `BasketCenter`, `ButtonHeight`, `Caps`, `CartColors`, `CartScene`, `CartWithBadge`, `CountBadge`, `IconStroke`, `Pill`, `PillButton`, `ProductScene`, `drawCart`, `drawMug`, `drawPlus`, `lerp`, `quadratic`, `rememberCartScene`. Strip `CartStage` (showcase frame).
 - **Into the bag** (`addtocart-bag`): A tiny mug drops into the cart, the cart squashes as it catches it, and sparkles and a tick pop. → `IntoTheBagDemo()` in `demos/addtocart/IntoTheBagDemo.kt`
-  Copy `IntoTheBagDemo.kt`, `CartStyle.kt`.
+  Copy `IntoTheBagDemo.kt`; from `CartStyle.kt` only `AddButton`, `AddLabel`, `AutoplayDelayMillis`, `BasketCenter`, `ButtonHeight`, `Caps`, `CartColors`, `CartScene`, `CartWithBadge`, `CountBadge`, `IconStroke`, `Pill`, `PillButton`, `ProductScene`, `drawCart`, `drawCheck`, `drawMug`, `drawPlus`, `lerp`, `quadratic`, `rememberCartScene`. Strip `CartStage` (showcase frame).
 - **Plus to check** (`addtocart-check`): The + grows into a black disc and turns into a ✓, then the button fills: ADDED. It reverts after 2 s. → `PlusToCheckDemo()` in `demos/addtocart/PlusToCheckDemo.kt`
-  Copy `PlusToCheckDemo.kt`, `CartStyle.kt`.
+  Copy `PlusToCheckDemo.kt`; from `CartStyle.kt` only `AutoplayDelayMillis`, `ButtonHeight`, `Caps`, `CartColors`, `CartScene`, `CartWithBadge`, `CountBadge`, `IconStroke`, `Pill`, `PillButton`, `ProductScene`, `drawCart`, `drawMug`, `lerp`, `quadratic`, `rememberCartScene`. Strip `CartStage` (showcase frame).
 
 ## Toggles & selection
 
@@ -145,129 +141,122 @@ Switches, checkboxes, steppers, swatches and date pickers.
 
 ### Switch · Part 1
 
-Copy folder `demos/switch1/` except `SwitchPart1Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/checkbox1/CheckboxStyle.kt`, `demos/menus/MenuStyle.kt`.
+Copy folder `demos/switch1/` except `SwitchPart1Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Liquid toggle** (`switch1-liquid`): Knob stretches like a liquid drop as it slides, then squishes at the edge. → `LiquidToggleDemo()` in `demos/switch1/LiquidToggleDemo.kt`
-  Copy `LiquidToggleDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `LiquidToggleDemo.kt`; from `SwitchStyle.kt` only `KnobInset`, `SwitchColors`, `TrackHeight`, `TrackWidth`, `drawTrack`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Day & night** (`switch1-day-night`): Sun knob rolls right and becomes a moon. Clouds sink, stars twinkle in. → `DayNightDemo()` in `demos/switch1/DayNightDemo.kt`
-  Copy `DayNightDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `DayNightDemo.kt`; from `SwitchStyle.kt` only `SwitchColors`, `drawKnob`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Icon morph** (`switch1-icon-morph`): Knob spins across as its ✕ morphs into a ✓. Track fills violet→cyan. → `IconMorphDemo()` in `demos/switch1/IconMorphDemo.kt`
-  Copy `IconMorphDemo.kt`, `SwitchStyle.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `mix`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `IconMorphDemo.kt`; from `SwitchStyle.kt` only `KnobInset`, `SwitchColors`, `TrackHeight`, `TrackWidth`, `drawKnob`, `drawTrack`; from `demos/checkbox1/CheckboxStyle.kt` only `mix`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Pull cord lamp** (`switch1-lamp`): Pull the cord: it springs back, the bulb flickers on and the lamp sways. → `PullCordLampDemo()` in `demos/switch1/PullCordLampDemo.kt`
-  Copy `PullCordLampDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `PullCordLampDemo.kt`; from `SwitchStyle.kt` only `SwitchColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Checkbox** (`switch1-checkbox`): Box squishes on tap, fills violet→cyan from the center, check draws in. → `GradientCheckboxDemo()` in `demos/switch1/GradientCheckboxDemo.kt`
-  Copy `GradientCheckboxDemo.kt`, `SwitchStyle.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `GradientCheckboxDemo.kt`; from `SwitchStyle.kt` only `SwitchColors`; from `demos/checkbox1/CheckboxStyle.kt` only `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Segmented** (`switch1-segmented`): Pill slides on a spring, stretching mid-move. A "−20%" tag pops in. → `SegmentedDemo()` in `demos/switch1/SegmentedDemo.kt`
-  Copy `SegmentedDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `SegmentedDemo.kt`; from `SwitchStyle.kt` only `SwitchColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 
 ### Switch · Part 2
 
-Copy folder `demos/switch2/` except `SwitchPart2Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/switch2/` except `SwitchPart2Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Flip knob** (`switch2-flip`): Knob flips like a coin as it slides: a gray "O" face turns into a glowing "I". → `FlipKnobDemo()` in `demos/switch2/FlipKnobDemo.kt`
-  Copy `FlipKnobDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `SwitchStage` (showcase frame).
+  Copy `FlipKnobDemo.kt`; from `SwitchStyle.kt` only `KnobInset`, `KnobSize`, `KnobTravel`, `TrackHeight`, `TrackOff`, `TrackOn`, `TrackWidth`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SwitchStage` (showcase frame).
 - **Neon glow** (`switch2-neon`): A spark races around the outline, then the toggle glows in neon. → `NeonGlowDemo()` in `demos/switch2/NeonGlowDemo.kt`
-  Copy `NeonGlowDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `SwitchStage` (showcase frame).
+  Copy `NeonGlowDemo.kt`; from `SwitchStyle.kt` only `KnobInset`, `KnobSize`, `KnobTravel`, `TrackHeight`, `TrackWidth`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SwitchStage` (showcase frame).
 - **3D push button** (`switch2-push`): Round 3D button sinks when pressed and stays down. A cyan ring lights up. → `PushButton3DDemo()` in `demos/switch2/PushButton3DDemo.kt`
   Copy `PushButton3DDemo.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SwitchStage` (showcase frame).
 - **Rocker switch** (`switch2-rocker`): Wall rocker snaps to the other side: pressed half darkens, the LED glows. → `RockerSwitchDemo()` in `demos/switch2/RockerSwitchDemo.kt`
   Copy `RockerSwitchDemo.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SwitchStage` (showcase frame).
 - **Emoji face** (`switch2-emoji`): The knob is a face: it blinks as it slides and its frown turns into a smile. → `EmojiFaceDemo()` in `demos/switch2/EmojiFaceDemo.kt`
-  Copy `EmojiFaceDemo.kt`, `SwitchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `SwitchStage` (showcase frame).
+  Copy `EmojiFaceDemo.kt`; from `SwitchStyle.kt` only `KnobInset`, `KnobSize`, `KnobTravel`, `TrackHeight`, `TrackOff`, `TrackOn`, `TrackWidth`, `mix`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SwitchStage` (showcase frame).
 - **Mute toggle** (`switch2-mute`): Slash wipes off the speaker, then sound waves ripple out from it. → `MuteToggleDemo()` in `demos/switch2/MuteToggleDemo.kt`
   Copy `MuteToggleDemo.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SwitchStage` (showcase frame).
 
 ### Checkbox · Part 1
 
-Copy folder `demos/checkbox1/` except `CheckboxPart1Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/checkbox1/` except `CheckboxPart1Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Circle to check** (`checkbox1-circle`): The ring unwinds and its stroke flows into a ✓. The label fades to gray. → `CircleToCheckDemo()` in `demos/checkbox1/CircleToCheckDemo.kt`
-  Copy `CircleToCheckDemo.kt`, `CheckboxStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `CircleToCheckDemo.kt`; from `CheckboxStyle.kt` only `CheckColors`, `PanelShape`, `PathTrim`, `checkPanel`, `mix`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Strike & sink** (`checkbox1-strike`): Tap: the box fills, a line strikes the task, the row sinks to the bottom. → `StrikeSinkDemo()` in `demos/checkbox1/StrikeSinkDemo.kt`
-  Copy `StrikeSinkDemo.kt`, `CheckboxStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `StrikeSinkDemo.kt`; from `CheckboxStyle.kt` only `CheckBoxMark`, `CheckColors`, `PanelShape`, `PathTrim`, `boxFill`, `checkMark`, `checkPanel`, `checkStroke`, `drawBoxShell`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Select all** (`checkbox1-select-all`): Tap "Select all": the items check one by one, the parent goes – then ✓. → `SelectAllDemo()` in `demos/checkbox1/SelectAllDemo.kt`
-  Copy `SelectAllDemo.kt`, `CheckboxStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `SelectAllDemo.kt`; from `CheckboxStyle.kt` only `CheckBoxMark`, `CheckColors`, `PanelShape`, `PathTrim`, `boxFill`, `checkMark`, `checkPanel`, `checkStroke`, `drawBoxShell`, `drawTriStateBox`, `mix`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Radio slide** (`checkbox1-radio`): The selected dot stretches like goo as it slides to the next option. → `RadioSlideDemo()` in `demos/checkbox1/RadioSlideDemo.kt`
-  Copy `RadioSlideDemo.kt`, `CheckboxStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `RadioSlideDemo.kt`; from `CheckboxStyle.kt` only `CheckColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Card select** (`checkbox1-cards`): Tap a photo: it shrinks a little, a ✓ badge pops, a gradient frame glows. → `CardSelectDemo()` in `demos/checkbox1/CardSelectDemo.kt`
-  Copy `CardSelectDemo.kt`, `CheckboxStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `CardSelectDemo.kt`; from `CheckboxStyle.kt` only `CheckColors`, `PathTrim`, `checkMark`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Ink fill** (`checkbox1-ink`): Liquid rises in the box with a wavy top, then a white ✓ draws in. → `InkFillDemo()` in `demos/checkbox1/InkFillDemo.kt`
-  Copy `InkFillDemo.kt`, `CheckboxStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `InkFillDemo.kt`; from `CheckboxStyle.kt` only `CheckColors`, `PanelShape`, `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 
 ### Checkbox · Part 2
 
-Copy folder `demos/checkbox2/` except `CheckboxPart2Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/checkbox1/CheckboxStyle.kt`, `demos/menus/MenuStyle.kt`.
+Copy folder `demos/checkbox2/` except `CheckboxPart2Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Drag select** (`checkbox2-drag`): Press and drag down the list: every box you pass checks in turn. → `DragSelectDemo()` in `demos/checkbox2/DragSelectDemo.kt`
-  Copy `DragSelectDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckBoxMark`, `CheckColors`, `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `DragSelectDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckBoxMark`, `CheckColors`, `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Hand-drawn tick** (`checkbox2-hand-drawn`): A pencil scribbles a hand-drawn ✓ that overshoots the box. → `HandDrawnTickDemo()` in `demos/checkbox2/HandDrawnTickDemo.kt`
-  Copy `HandDrawnTickDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `PathTrim`, `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `HandDrawnTickDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `PathTrim`, `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Flip tick** (`checkbox2-flip`): The box lifts and flips over in 3D. Its back is filled, with a ✓. → `FlipTickDemo()` in `demos/checkbox2/FlipTickDemo.kt`
-  Copy `FlipTickDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `FlipTickDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Progress ring** (`checkbox2-ring`): Each checked task fills the ring. At 3/3 it turns into a glowing ✓. → `ProgressRingDemo()` in `demos/checkbox2/ProgressRingDemo.kt`
-  Copy `ProgressRingDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckBoxMark`, `CheckColors`, `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `ProgressRingDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckBoxMark`, `CheckColors`, `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Tri-state** (`checkbox2-tri-state`): Tap cycles: empty → – (some) → ✓ (all). The dash bends into a check. → `TriStateDemo()` in `demos/checkbox2/TriStateDemo.kt`
-  Copy `TriStateDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `checkPanel`, `drawTriStateBox`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `TriStateDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `checkPanel`, `drawTriStateBox`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Pop burst** (`checkbox2-pop`): Tap: the box squishes, then pops a ✓ with a burst of dots and a ring. → `PopBurstDemo()` in `demos/checkbox2/PopBurstDemo.kt`
-  Copy `PopBurstDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`, `drawBoxShell`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `PopBurstDemo.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `CheckColors`, `PathTrim`, `checkMark`, `checkPanel`, `checkStroke`, `drawBoxShell`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 
 ### Stepper
 
-Copy folder `demos/stepper/` except `StepperDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/stepper/` except `StepperDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Soft press** (`stepper-press`): The tapped button squishes softly; the new number pops up from small. → `SoftPressStepperDemo()` in `demos/stepper/SoftPressStepperDemo.kt`
-  Copy `SoftPressStepperDemo.kt`, `StepperStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SoftPressStepperDemo.kt`; from `StepperStyle.kt` only `ButtonDeep`, `ButtonInset`, `ButtonLight`, `ButtonSize`, `MaxQuantity`, `PillHeight`, `PillWidth`, `QuantityText`, `Side`, `StartQuantity`, `StepButton`, `StepperScene`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Side slide** (`stepper-slide`): The pill nudges; the new number slides in from the side you tapped. → `SideSlideStepperDemo()` in `demos/stepper/SideSlideStepperDemo.kt`
-  Copy `SideSlideStepperDemo.kt`, `StepperStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SideSlideStepperDemo.kt`; from `StepperStyle.kt` only `ButtonDeep`, `ButtonInset`, `ButtonLight`, `ButtonSize`, `MaxQuantity`, `NumberWindowInset`, `PillHeight`, `PillWidth`, `QuantityText`, `Side`, `StartQuantity`, `StepButton`, `StepperScene`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Ripple reveal** (`stepper-ripple`): A ripple spreads from the button and reveals the new number as it passes. → `RippleRevealStepperDemo()` in `demos/stepper/RippleRevealStepperDemo.kt`
-  Copy `RippleRevealStepperDemo.kt`, `StepperStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `RippleRevealStepperDemo.kt`; from `StepperStyle.kt` only `ButtonDeep`, `ButtonInset`, `ButtonLight`, `ButtonSize`, `MaxQuantity`, `PillHeight`, `PillWidth`, `QuantityText`, `Side`, `StartQuantity`, `StepButton`, `StepperScene`, `buttonCenter`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Stretch pill** (`stepper-stretch`): The pill stretches toward the tap and springs back; the number wobbles. → `StretchPillStepperDemo()` in `demos/stepper/StretchPillStepperDemo.kt`
-  Copy `StretchPillStepperDemo.kt`, `StepperStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `StretchPillStepperDemo.kt`; from `StepperStyle.kt` only `ButtonDeep`, `ButtonInset`, `ButtonLight`, `ButtonSize`, `MaxQuantity`, `PillHeight`, `PillWidth`, `QuantityText`, `Side`, `StartQuantity`, `StepButton`, `StepperScene`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Glyph spin** (`stepper-spin`): The + or − spins half a turn; the number flips over edge-on. → `GlyphSpinStepperDemo()` in `demos/stepper/GlyphSpinStepperDemo.kt`
-  Copy `GlyphSpinStepperDemo.kt`, `StepperStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `GlyphSpinStepperDemo.kt`; from `StepperStyle.kt` only `ButtonDeep`, `ButtonInset`, `ButtonLight`, `ButtonSize`, `MaxQuantity`, `PillHeight`, `PillWidth`, `QuantityText`, `Side`, `StartQuantity`, `StepButton`, `StepperScene`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Halo burst** (`stepper-halo`): A glow ring bursts from the button; the new number zooms down in. → `HaloBurstStepperDemo()` in `demos/stepper/HaloBurstStepperDemo.kt`
-  Copy `HaloBurstStepperDemo.kt`, `StepperStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `HaloBurstStepperDemo.kt`; from `StepperStyle.kt` only `ButtonDeep`, `ButtonInset`, `ButtonLight`, `ButtonSize`, `MaxQuantity`, `PillHeight`, `PillWidth`, `QuantityText`, `Side`, `StartQuantity`, `StepButton`, `StepperScene`, `buttonCenter`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Color picker
 
-Copy folder `demos/colorpicker/` except `ColorPickerDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/colorpicker/` except `ColorPickerDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Halo slide** (`colorpicker-halo`): A white halo springs over to the tapped swatch while the tee cross-fades to its colour. → `HaloSlideDemo()` in `demos/colorpicker/HaloSlideDemo.kt`
-  Copy `HaloSlideDemo.kt`, `ColorPickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `HaloSlideDemo.kt`; from `ColorPickerStyle.kt` only `AutoplayDelayMillis`, `AutoplayStepMillis`, `AutoplaySwatches`, `CardLayout`, `CardShape`, `ColorPickerScene`, `DefaultSwatch`, `DotSize`, `InitialSwatch`, `PanelColor`, `PanelShape`, `ProductInfo`, `RingRadius`, `RingStroke`, `SelectionRing`, `SlotSize`, `Swatch`, `SwatchDot`, `SwatchState`, `Swatches`, `TeeArt`, `TeeImpact`, `TeeInk`, `drawDefaultPanel`, `drawTee`, `rememberSwatchState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Check pop** (`colorpicker-check`): The tapped swatch pops and draws a check; the tee squashes and springs back in the new colour. → `CheckPopDemo()` in `demos/colorpicker/CheckPopDemo.kt`
-  Copy `CheckPopDemo.kt`, `ColorPickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `CheckPopDemo.kt`; from `ColorPickerStyle.kt` only `AutoplayDelayMillis`, `AutoplayStepMillis`, `AutoplaySwatches`, `CardLayout`, `CardShape`, `ColorPickerScene`, `DefaultSwatch`, `DotSize`, `InitialSwatch`, `PanelColor`, `PanelShape`, `ProductInfo`, `RingRadius`, `RingStroke`, `SelectionRing`, `SlotSize`, `Swatch`, `SwatchDot`, `SwatchState`, `Swatches`, `TeeArt`, `TeeImpact`, `TeeInk`, `drawDefaultPanel`, `drawTee`, `rememberSwatchState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Paint drop** (`colorpicker-drop`): A drop of paint arcs from the swatch onto the tee and splashes, spreading the colour from where it lands. → `PaintDropDemo()` in `demos/colorpicker/PaintDropDemo.kt`
-  Copy `PaintDropDemo.kt`, `ColorPickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `PaintDropDemo.kt`; from `ColorPickerStyle.kt` only `AutoplayDelayMillis`, `AutoplayStepMillis`, `AutoplaySwatches`, `CardLayout`, `CardShape`, `ColorPickerScene`, `DefaultSwatch`, `DotSize`, `InitialSwatch`, `PanelColor`, `PanelShape`, `ProductInfo`, `RingRadius`, `RingStroke`, `SelectionRing`, `SlotSize`, `Swatch`, `SwatchDot`, `SwatchState`, `Swatches`, `TeeArt`, `TeeImpact`, `TeeInk`, `drawDefaultPanel`, `drawTee`, `rememberSwatchState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Dye dip** (`colorpicker-dye`): A ring grows around the swatch and the new colour rises up the tee from the hem like dye. → `DyeDipDemo()` in `demos/colorpicker/DyeDipDemo.kt`
-  Copy `DyeDipDemo.kt`, `ColorPickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DyeDipDemo.kt`; from `ColorPickerStyle.kt` only `AutoplayDelayMillis`, `AutoplayStepMillis`, `AutoplaySwatches`, `CardLayout`, `CardShape`, `ColorPickerScene`, `DefaultSwatch`, `DotSize`, `InitialSwatch`, `PanelColor`, `PanelShape`, `ProductInfo`, `RingRadius`, `RingStroke`, `SelectionRing`, `SlotSize`, `Swatch`, `SwatchDot`, `SwatchState`, `Swatches`, `TeeArt`, `TeeImpact`, `TeeInk`, `drawDefaultPanel`, `drawTee`, `rememberSwatchState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Panel tint** (`colorpicker-tint`): The swatch lifts on a glow of its colour and the whole image panel takes on a tint of it. → `PanelTintDemo()` in `demos/colorpicker/PanelTintDemo.kt`
-  Copy `PanelTintDemo.kt`, `ColorPickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `PanelTintDemo.kt`; from `ColorPickerStyle.kt` only `AutoplayDelayMillis`, `AutoplayStepMillis`, `AutoplaySwatches`, `CardLayout`, `CardShape`, `ColorPickerScene`, `DefaultSwatch`, `DotSize`, `InitialSwatch`, `PanelColor`, `PanelShape`, `ProductInfo`, `RingRadius`, `RingStroke`, `SelectionRing`, `SlotSize`, `Swatch`, `SwatchDot`, `SwatchState`, `Swatches`, `TeeArt`, `TeeImpact`, `TeeInk`, `drawDefaultPanel`, `drawTee`, `rememberSwatchState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Turntable spin** (`colorpicker-spin`): The tee spins once on its axis, swapping colour edge-on, while a dashed ring turns in around the swatch. → `TurntableSpinDemo()` in `demos/colorpicker/TurntableSpinDemo.kt`
-  Copy `TurntableSpinDemo.kt`, `ColorPickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `TurntableSpinDemo.kt`; from `ColorPickerStyle.kt` only `AutoplayDelayMillis`, `AutoplayStepMillis`, `AutoplaySwatches`, `CardLayout`, `CardShape`, `ColorPickerScene`, `DefaultSwatch`, `DotSize`, `InitialSwatch`, `PanelColor`, `PanelShape`, `ProductInfo`, `RingRadius`, `RingStroke`, `SelectionRing`, `SlotSize`, `Swatch`, `SwatchDot`, `SwatchState`, `Swatches`, `TeeArt`, `TeeImpact`, `TeeInk`, `drawDefaultPanel`, `drawTee`, `rememberSwatchState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Date picker
 
-Copy folder `demos/datepicker/` except `DatePickerDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/datepicker/` except `DatePickerDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Halo trace** (`datepicker-halo`): A glowing ring traces around the tapped day, then the capsule fills with color. → `HaloTraceDemo()` in `demos/datepicker/HaloTraceDemo.kt`
-  Copy `HaloTraceDemo.kt`, `DatePickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `HaloTraceDemo.kt`; from `DatePickerStyle.kt` only `ArrowButton`, `AutoplayDays`, `AutoplayDelayMillis`, `AutoplayStepMillis`, `Capsule`, `CapsuleBrush`, `CapsuleShape`, `CardShape`, `CellHeight`, `CellInset`, `DatePickerScene`, `DatePickerState`, `DayLabel`, `FirstDay`, `InitialDay`, `Letters`, `MonthHeader`, `RollingText`, `SelectionFooter`, `SlotsByDay`, `Today`, `WeekDays`, `WeekStrip`, `WeekdayNames`, `cellRect`, `rememberDatePickerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Snap brackets** (`datepicker-brackets`): Four corner brackets fly to the tapped day, open wide, then snap shut onto it. → `SnapBracketsDemo()` in `demos/datepicker/SnapBracketsDemo.kt`
-  Copy `SnapBracketsDemo.kt`, `DatePickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SnapBracketsDemo.kt`; from `DatePickerStyle.kt` only `ArrowButton`, `AutoplayDays`, `AutoplayDelayMillis`, `AutoplayStepMillis`, `Capsule`, `CapsuleBrush`, `CapsuleShape`, `CardShape`, `CellHeight`, `CellInset`, `DatePickerScene`, `DatePickerState`, `DayLabel`, `FirstDay`, `InitialDay`, `Letters`, `MonthHeader`, `RollingText`, `SelectionFooter`, `SlotsByDay`, `Today`, `WeekDays`, `WeekStrip`, `WeekdayNames`, `cellRect`, `rememberDatePickerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Rise & land** (`datepicker-rise`): The tapped day rises on a deep shadow, then lands with a squash as the capsule appears. → `RiseLandDemo()` in `demos/datepicker/RiseLandDemo.kt`
-  Copy `RiseLandDemo.kt`, `DatePickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `RiseLandDemo.kt`; from `DatePickerStyle.kt` only `ArrowButton`, `AutoplayDays`, `AutoplayDelayMillis`, `AutoplayStepMillis`, `Capsule`, `CapsuleBrush`, `CapsuleShape`, `CardShape`, `CellHeight`, `CellInset`, `DatePickerScene`, `DatePickerState`, `DayLabel`, `FirstDay`, `InitialDay`, `Letters`, `MonthHeader`, `RollingText`, `SelectionFooter`, `SlotsByDay`, `Today`, `WeekDays`, `WeekStrip`, `WeekdayNames`, `cellRect`, `rememberDatePickerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Side wipe** (`datepicker-wipe`): Color wipes out of the old day toward the new one, then wipes into it from the same side. → `SideWipeDemo()` in `demos/datepicker/SideWipeDemo.kt`
-  Copy `SideWipeDemo.kt`, `DatePickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SideWipeDemo.kt`; from `DatePickerStyle.kt` only `ArrowButton`, `AutoplayDays`, `AutoplayDelayMillis`, `AutoplayStepMillis`, `CapsuleBrush`, `CapsuleShape`, `CardShape`, `CellHeight`, `CellInset`, `DatePickerScene`, `DatePickerState`, `DayLabel`, `FirstDay`, `InitialDay`, `Letters`, `MonthHeader`, `RollingText`, `SelectionFooter`, `SlotsByDay`, `Today`, `WeekDays`, `WeekStrip`, `WeekdayNames`, `rememberDatePickerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Dot swell** (`datepicker-dot`): A tiny dot appears under the tapped date and swells up into the full capsule. → `DotSwellDemo()` in `demos/datepicker/DotSwellDemo.kt`
-  Copy `DotSwellDemo.kt`, `DatePickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DotSwellDemo.kt`; from `DatePickerStyle.kt` only `ArrowButton`, `AutoplayDays`, `AutoplayDelayMillis`, `AutoplayStepMillis`, `CapsuleBrush`, `CapsuleShape`, `CardShape`, `CellHeight`, `CellInset`, `DatePickerScene`, `DatePickerState`, `DayLabel`, `FirstDay`, `InitialDay`, `Letters`, `MonthHeader`, `RollingText`, `SelectionFooter`, `SlotsByDay`, `Today`, `WeekDays`, `WeekStrip`, `WeekdayNames`, `rememberDatePickerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Twist in** (`datepicker-twist`): The new capsule twists in from a quarter spin while the old one twists away. → `TwistInDemo()` in `demos/datepicker/TwistInDemo.kt`
-  Copy `TwistInDemo.kt`, `DatePickerStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `TwistInDemo.kt`; from `DatePickerStyle.kt` only `ArrowButton`, `AutoplayDays`, `AutoplayDelayMillis`, `AutoplayStepMillis`, `Capsule`, `CapsuleBrush`, `CapsuleShape`, `CardShape`, `CellHeight`, `CellInset`, `DatePickerScene`, `DatePickerState`, `DayLabel`, `FirstDay`, `InitialDay`, `Letters`, `MonthHeader`, `RollingText`, `SelectionFooter`, `SlotsByDay`, `Today`, `WeekDays`, `WeekStrip`, `WeekdayNames`, `cellRect`, `rememberDatePickerState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ## Menus & navigation
 
@@ -275,110 +264,105 @@ Menus, floating buttons, dialogs and screen transitions.
 
 ### Menus
 
-Copy folder `demos/menus/`. For a single animation use its own Copy line below.
+Copy folder `demos/menus/`. To port one animation use its own Copy line below instead.
 
 - **Hamburger morph** (`hamburger`): Bars slide together, then spin into an ✕. Button fills violet→cyan. → `HamburgerMorphDemo()` in `demos/menus/HamburgerMorphDemo.kt`
-  Copy `HamburgerMorphDemo.kt`, `MenuStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `HamburgerMorphDemo.kt`; from `MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Side drawer** (`drawer`): Drawer springs in from the left as the page dims. Rows stagger in. → `SideDrawerDemo()` in `demos/menus/SideDrawerDemo.kt`
-  Copy `SideDrawerDemo.kt`, `MenuStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `SideDrawerDemo.kt`; from `MenuStyle.kt` only `Bar`, `Glyph`, `GlyphIcon`, `MenuBarsIcon`, `MenuColors`, `MockScreen`, `MockTopBar`, `StaggerIn`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **FAB fan** (`fab-fan`): The + turns into ✕ as five buttons shoot up and fan out on an arc. → `FabFanDemo()` in `demos/menus/FabFanDemo.kt`
-  Copy `FabFanDemo.kt`, `MenuStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `FabFanDemo.kt`; from `MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Bottom sheet** (`bottom-sheet`): Sheet springs up from the bottom over a dim. Icons pop in one by one. → `BottomSheetDemo()` in `demos/menus/BottomSheetDemo.kt`
-  Copy `BottomSheetDemo.kt`, `MenuStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `BottomSheetDemo.kt`; from `MenuStyle.kt` only `Bar`, `Glyph`, `GlyphIcon`, `MenuColors`, `MockScreen`, `MockTopBar`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Staggered dropdown** (`dropdown`): Chevron flips, the card unfolds down, items slide in one after another. → `StaggeredDropdownDemo()` in `demos/menus/StaggeredDropdownDemo.kt`
-  Copy `StaggeredDropdownDemo.kt`, `MenuStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `StaggeredDropdownDemo.kt`; from `MenuStyle.kt` only `MenuColors`, `StaggerIn`. Strip `MenuStage` (showcase frame).
 - **Circle reveal** (`circle-reveal`): A circle grows from the ☰ to fill the screen. Big links fade up. → `CircleRevealDemo()` in `demos/menus/CircleRevealDemo.kt`
-  Copy `CircleRevealDemo.kt`, `MenuStyle.kt`. Strip `MenuStage` (showcase frame).
+  Copy `CircleRevealDemo.kt`; from `MenuStyle.kt` only `Bar`, `MenuColors`, `MockScreen`, `MockTopBar`, `StaggerIn`. Strip `MenuStage` (showcase frame).
 
 ### Menu · View as
 
-Copy folder `demos/viewas/` except `ViewAsDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/viewas/` except `ViewAsDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Swing hinge** (`viewas-hinge`): The menu swings down from a hinge pin and settles with a sway. → `SwingHingeDemo()` in `demos/viewas/SwingHingeDemo.kt`
-  Copy `SwingHingeDemo.kt`, `ViewAsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SwingHingeDemo.kt`; from `ViewAsStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `ButtonHeight`, `ButtonShape`, `ButtonSurface`, `ButtonWidth`, `LabelGap`, `LabelHeight`, `Mauve`, `MenuBorder`, `MenuCorner`, `MenuGap`, `MenuRow`, `MenuShape`, `MenuSurface`, `MenuWidth`, `PickCloseDelayMillis`, `PreviewSurface`, `ProjectsPreview`, `RowHeight`, `RowHighlight`, `RowShape`, `SceneCard`, `ViewAsMenu`, `ViewAsScene`, `ViewAsState`, `ViewButton`, `ViewIcon`, `ViewMode`, `drawPreview`, `rememberViewAsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Double doors** (`viewas-doors`): Two halves swing shut like doors; picking swings them open. → `DoubleDoorsDemo()` in `demos/viewas/DoubleDoorsDemo.kt`
-  Copy `DoubleDoorsDemo.kt`, `ViewAsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DoubleDoorsDemo.kt`; from `ViewAsStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `ButtonHeight`, `ButtonShape`, `ButtonSurface`, `ButtonWidth`, `LabelGap`, `LabelHeight`, `Mauve`, `MenuBorder`, `MenuCorner`, `MenuGap`, `MenuRow`, `MenuShape`, `MenuSurface`, `MenuWidth`, `PickCloseDelayMillis`, `PreviewSurface`, `ProjectsPreview`, `RowHeight`, `RowHighlight`, `RowShape`, `SceneCard`, `ViewAsMenu`, `ViewAsScene`, `ViewAsState`, `ViewButton`, `ViewIcon`, `ViewMode`, `drawPreview`, `rememberViewAsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Liquid fill** (`viewas-liquid`): The menu fills up like liquid with a wavy edge; drains on pick. → `LiquidFillDemo()` in `demos/viewas/LiquidFillDemo.kt`
-  Copy `LiquidFillDemo.kt`, `ViewAsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `LiquidFillDemo.kt`; from `ViewAsStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `ButtonHeight`, `ButtonShape`, `ButtonSurface`, `ButtonWidth`, `LabelGap`, `LabelHeight`, `Mauve`, `MenuBorder`, `MenuCorner`, `MenuGap`, `MenuRow`, `MenuShape`, `MenuSurface`, `MenuWidth`, `PickCloseDelayMillis`, `PreviewSurface`, `ProjectsPreview`, `RowHeight`, `RowHighlight`, `RowShape`, `SceneCard`, `ViewAsMenu`, `ViewAsScene`, `ViewAsState`, `ViewButton`, `ViewIcon`, `ViewMode`, `WaveBlue`, `drawPreview`, `rememberViewAsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Zipper rows** (`viewas-zipper`): Rows slide in from alternating sides; slide out on pick. → `ZipperRowsDemo()` in `demos/viewas/ZipperRowsDemo.kt`
-  Copy `ZipperRowsDemo.kt`, `ViewAsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ZipperRowsDemo.kt`; from `ViewAsStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `ButtonHeight`, `ButtonShape`, `ButtonSurface`, `ButtonWidth`, `LabelGap`, `LabelHeight`, `Mauve`, `MenuBorder`, `MenuCorner`, `MenuGap`, `MenuRow`, `MenuShape`, `MenuSurface`, `MenuWidth`, `PickCloseDelayMillis`, `PreviewSurface`, `ProjectsPreview`, `RowHeight`, `RowHighlight`, `RowShape`, `SceneCard`, `ViewAsMenu`, `ViewAsScene`, `ViewAsState`, `ViewButton`, `ViewIcon`, `ViewMode`, `drawPreview`, `rememberViewAsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Scroll unroll** (`viewas-scroll`): The menu unrolls downward like a scroll; rolls back up on pick. → `ScrollUnrollDemo()` in `demos/viewas/ScrollUnrollDemo.kt`
-  Copy `ScrollUnrollDemo.kt`, `ViewAsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ScrollUnrollDemo.kt`; from `ViewAsStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `ButtonHeight`, `ButtonShape`, `ButtonSurface`, `ButtonWidth`, `LabelGap`, `LabelHeight`, `Mauve`, `MenuBorder`, `MenuCorner`, `MenuGap`, `MenuRow`, `MenuShape`, `MenuSurface`, `MenuWidth`, `PickCloseDelayMillis`, `PreviewSurface`, `ProjectsPreview`, `RowHeight`, `RowHighlight`, `RowShape`, `SceneCard`, `ViewAsMenu`, `ViewAsScene`, `ViewAsState`, `ViewButton`, `ViewIcon`, `ViewMode`, `drawPreview`, `rememberViewAsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Line expand** (`viewas-line`): A line shoots out of the button, then opens into the menu. → `LineExpandDemo()` in `demos/viewas/LineExpandDemo.kt`
-  Copy `LineExpandDemo.kt`, `ViewAsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `LineExpandDemo.kt`; from `ViewAsStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `ButtonHeight`, `ButtonShape`, `ButtonSurface`, `ButtonWidth`, `LabelGap`, `LabelHeight`, `Mauve`, `MenuBorder`, `MenuCorner`, `MenuGap`, `MenuRow`, `MenuShape`, `MenuSurface`, `MenuWidth`, `PickCloseDelayMillis`, `PreviewSurface`, `ProjectsPreview`, `RowHeight`, `RowHighlight`, `RowShape`, `SceneCard`, `ViewAsMenu`, `ViewAsScene`, `ViewAsState`, `ViewButton`, `ViewIcon`, `ViewMode`, `WaveBlue`, `drawPreview`, `rememberViewAsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Menu · Minimal
 
-Copy folder `demos/menulight/` except `MinimalMenuDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/menulight/` except `MinimalMenuDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Push back** (`menulight-pushback`): The page tilts back in 3D and slides aside, revealing the nav behind it. → `PushBackMenuDemo()` in `demos/menulight/PushBackMenuDemo.kt`
-  Copy `PushBackMenuDemo.kt`, `MinimalMenuStyle.kt`; from `demos/menus/MenuStyle.kt` only `StaggerIn`.
+  Copy `PushBackMenuDemo.kt`; from `MinimalMenuStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `Caps`, `Hairline`, `KebabButton`, `KebabSize`, `LightColors`, `MenuOption`, `MinimalMenuScene`, `MinimalMenuState`, `MinimalPage`, `PagePadding`, `PickCloseDelayMillis`, `PlaceholderRow`, `drawKebab`, `drawKebabDots`; from `demos/menus/MenuStyle.kt` only `StaggerIn`. Strip `LightStage` (showcase frame).
 - **Kebab popover** (`menulight-popover`): A rounded popover scales out of the ⋮ button, anchored at its top-right corner. → `KebabPopoverMenuDemo()` in `demos/menulight/KebabPopoverMenuDemo.kt`
-  Copy `KebabPopoverMenuDemo.kt`, `MinimalMenuStyle.kt`; from `demos/menus/MenuStyle.kt` only `StaggerIn`.
+  Copy `KebabPopoverMenuDemo.kt`; from `MinimalMenuStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `Caps`, `Hairline`, `KebabButton`, `KebabSize`, `LightColors`, `MenuOption`, `MinimalMenuScene`, `MinimalMenuState`, `MinimalPage`, `OptionHeight`, `OptionRow`, `PagePadding`, `PickCloseDelayMillis`, `PlaceholderRow`, `drawKebab`, `drawKebabDots`; from `demos/menus/MenuStyle.kt` only `StaggerIn`. Strip `LightStage` (showcase frame).
 - **Gooey menu** (`menulight-gooey`): Option bubbles drip out of the ⋮ one below another, joined by a gooey neck. → `GooeyMenuDemo()` in `demos/menulight/GooeyMenuDemo.kt`
-  Copy `GooeyMenuDemo.kt`, `MinimalMenuStyle.kt`.
+  Copy `GooeyMenuDemo.kt`; from `MinimalMenuStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `Caps`, `Hairline`, `KebabSize`, `LightColors`, `MenuOption`, `MinimalMenuScene`, `MinimalMenuState`, `MinimalPage`, `PagePadding`, `PickCloseDelayMillis`, `PlaceholderRow`, `drawKebab`, `drawKebabDots`. Strip `LightStage` (showcase frame).
 - **Fold down** (`menulight-fold`): The menu unfolds downward under the ⋮ like folded paper, one panel at a time. → `FoldDownMenuDemo()` in `demos/menulight/FoldDownMenuDemo.kt`
-  Copy `FoldDownMenuDemo.kt`, `MinimalMenuStyle.kt`.
+  Copy `FoldDownMenuDemo.kt`; from `MinimalMenuStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `Caps`, `Hairline`, `KebabButton`, `KebabSize`, `LightColors`, `MenuOption`, `MinimalMenuScene`, `MinimalMenuState`, `MinimalPage`, `OptionHeight`, `OptionRow`, `PagePadding`, `PickCloseDelayMillis`, `PlaceholderRow`, `drawKebab`, `drawKebabDots`. Strip `LightStage` (showcase frame).
 - **Button to panel** (`menulight-morph`): The ⋮ button itself grows into a black-outlined panel with a close × in its corner. → `ButtonToPanelMenuDemo()` in `demos/menulight/ButtonToPanelMenuDemo.kt`
-  Copy `ButtonToPanelMenuDemo.kt`, `MinimalMenuStyle.kt`.
+  Copy `ButtonToPanelMenuDemo.kt`; from `MinimalMenuStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `Caps`, `Hairline`, `KebabSize`, `LightColors`, `MenuOption`, `MinimalMenuScene`, `MinimalMenuState`, `MinimalPage`, `OptionHeight`, `OptionRow`, `PagePadding`, `PickCloseDelayMillis`, `PlaceholderRow`, `drawKebabDots`. Strip `LightStage` (showcase frame).
 - **Command palette** (`menulight-palette`): A search field opens wide out of the ⋮; typing filters the options and the match takes ↵. → `CommandPaletteMenuDemo()` in `demos/menulight/CommandPaletteMenuDemo.kt`
-  Copy `CommandPaletteMenuDemo.kt`, `MinimalMenuStyle.kt`.
+  Copy `CommandPaletteMenuDemo.kt`; from `MinimalMenuStyle.kt` only `AutoplayDelayMillis`, `AutoplayPickDelayMillis`, `Caps`, `Hairline`, `KebabSize`, `LightColors`, `MenuOption`, `MinimalMenuScene`, `MinimalMenuState`, `MinimalPage`, `PagePadding`, `PickCloseDelayMillis`, `PlaceholderRow`, `drawKebabDots`. Strip `LightStage` (showcase frame).
 
 ### Floating button
 
-Copy folder `demos/fab2/` except `FloatingButtonDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/fab2/` except `FloatingButtonDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Scroll to top** (`fab2-scrolltop`): A ring round the button fills as the list scrolls. Tap it and the list flies back to the top. → `ScrollToTopFabDemo()` in `demos/fab2/ScrollToTopFabDemo.kt`
-  Copy `ScrollToTopFabDemo.kt`, `FabStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ScrollToTopFabDemo.kt`; from `FabStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `Fab`, `FabGradient`, `FabInset`, `FabSize`, `Green`, `Note`, `NoteRow`, `Notes`, `NotesHeader`, `NotesScene`, `Orange`, `ReelNoteCount`, `Teal`, `drawNoteLines`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Hold to record** (`fab2-record`): Hold the mic: it grows and turns pink, waves pulse out and a timer counts. Let go to stop. → `HoldToRecordFabDemo()` in `demos/fab2/HoldToRecordFabDemo.kt`
-  Copy `HoldToRecordFabDemo.kt`, `FabStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `HoldToRecordFabDemo.kt`; from `FabStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `Fab`, `FabGradient`, `FabInset`, `FabSize`, `Green`, `Note`, `NoteList`, `NoteRow`, `Notes`, `NotesHeader`, `NotesScene`, `Orange`, `ReelNoteCount`, `Teal`, `drawNoteLines`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Grid pop** (`fab2-grid`): Tap +: it turns into × and six action tiles pop out of it one by one, then fold back in reverse. → `GridPopFabDemo()` in `demos/fab2/GridPopFabDemo.kt`
-  Copy `GridPopFabDemo.kt`, `FabStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `GridPopFabDemo.kt`; from `FabStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `Fab`, `FabGradient`, `FabInset`, `FabSize`, `Green`, `Note`, `NoteList`, `NoteRow`, `Notes`, `NotesHeader`, `NotesScene`, `Orange`, `ReelNoteCount`, `Teal`, `drawNoteLines`, `drawPlus`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Context morph** (`fab2-morph`): Switch tabs: the button spins into a new icon and colour for that tab while the list cross-fades. → `ContextMorphFabDemo()` in `demos/fab2/ContextMorphFabDemo.kt`
-  Copy `ContextMorphFabDemo.kt`, `FabStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `ContextMorphFabDemo.kt`; from `FabStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `Fab`, `FabGradient`, `FabInset`, `FabSize`, `Green`, `Note`, `NoteList`, `NoteRow`, `Notes`, `NotesScene`, `Orange`, `ReelNoteCount`, `Teal`, `drawNoteLines`, `drawPlus`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Unread count** (`fab2-unread`): New messages fly along a curve into the button. With each one the red badge pops and its number rolls up. Tap the button to read them. → `UnreadCountFabDemo()` in `demos/fab2/UnreadCountFabDemo.kt`
-  Copy `UnreadCountFabDemo.kt`, `FabStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `UnreadCountFabDemo.kt`; from `FabStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `Fab`, `FabGradient`, `FabInset`, `FabSize`, `Green`, `Note`, `NoteList`, `NoteRow`, `Notes`, `NotesHeader`, `NotesScene`, `Orange`, `ReelNoteCount`, `ReplayPill`, `Teal`, `centeredAt`, `drawNoteLines`, `drawReplayGlyph`, `mix`, `rememberAutoplay`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Split actions** (`fab2-split`): Tap the button: it splits into Voice and Write, pulled apart with a gooey neck. Tap again and they merge back. → `SplitActionsFabDemo()` in `demos/fab2/SplitActionsFabDemo.kt`
-  Copy `SplitActionsFabDemo.kt`, `FabStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SplitActionsFabDemo.kt`; from `FabStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `Green`, `Note`, `NoteList`, `NoteRow`, `Notes`, `NotesHeader`, `NotesScene`, `Orange`, `ReelNoteCount`, `Teal`, `centeredAt`, `drawNoteLines`, `drawPlus`, `mix`, `rememberAutoplay`, `smoothstep`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Dialog
 
-Copy folder `demos/dialog/` except `DialogDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/dialog/` except `DialogDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Scale pop** (`dialog-pop`): The dialog pops up from 72% with a soft overshoot and shrinks away. → `ScalePopDemo()` in `demos/dialog/ScalePopDemo.kt`
-  Copy `ScalePopDemo.kt`, `DialogStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ScalePopDemo.kt`; from `DialogStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayHoldMillis`, `DeleteBrush`, `DeleteDialog`, `DeleteFileButton`, `DialogAction`, `DialogBorder`, `DialogButton`, `DialogPink`, `DialogScene`, `DialogShape`, `DialogState`, `DialogSurface`, `FileRow`, `FilesScreen`, `PdfBlue`, `ReplayPill`, `RowShape`, `Scrim`, `TrashIcon`, `drawReplayGlyph`, `rememberDialogState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Spring drop** (`dialog-drop`): Drops in from the top on a spring; Cancel lifts it away, Delete drops it. → `SpringDropDemo()` in `demos/dialog/SpringDropDemo.kt`
-  Copy `SpringDropDemo.kt`, `DialogStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SpringDropDemo.kt`; from `DialogStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayHoldMillis`, `DeleteBrush`, `DeleteDialog`, `DeleteFileButton`, `DialogAction`, `DialogBorder`, `DialogButton`, `DialogPink`, `DialogScene`, `DialogShape`, `DialogState`, `DialogSurface`, `FileRow`, `FilesScreen`, `PdfBlue`, `ReplayPill`, `RowShape`, `Scrim`, `TrashIcon`, `drawReplayGlyph`, `rememberDialogState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Hinge swing** (`dialog-hinge`): Swings down in 3D from a hinge on its top edge, then swings back up. → `HingeSwingDemo()` in `demos/dialog/HingeSwingDemo.kt`
-  Copy `HingeSwingDemo.kt`, `DialogStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `HingeSwingDemo.kt`; from `DialogStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayHoldMillis`, `DeleteBrush`, `DeleteDialog`, `DeleteFileButton`, `DialogAction`, `DialogBorder`, `DialogButton`, `DialogPink`, `DialogScene`, `DialogShape`, `DialogState`, `DialogSurface`, `FileRow`, `FilesScreen`, `PdfBlue`, `ReplayPill`, `RowShape`, `Scrim`, `TrashIcon`, `drawReplayGlyph`, `rememberDialogState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Line unfold** (`dialog-line`): A glowing line opens wide, then unfolds tall into the dialog. → `LineUnfoldDemo()` in `demos/dialog/LineUnfoldDemo.kt`
-  Copy `LineUnfoldDemo.kt`, `DialogStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `LineUnfoldDemo.kt`; from `DialogStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayHoldMillis`, `DeleteBrush`, `DeleteDialog`, `DeleteFileButton`, `DialogAction`, `DialogBorder`, `DialogButton`, `DialogPink`, `DialogScene`, `DialogShape`, `DialogState`, `DialogSurface`, `FileRow`, `FilesScreen`, `PdfBlue`, `ReplayPill`, `RowShape`, `Scrim`, `TrashIcon`, `drawReplayGlyph`, `rememberDialogState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Soft focus** (`dialog-focus`): Comes into focus out of a blur while the app behind softly blurs. → `SoftFocusDemo()` in `demos/dialog/SoftFocusDemo.kt`
-  Copy `SoftFocusDemo.kt`, `DialogStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SoftFocusDemo.kt`; from `DialogStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayHoldMillis`, `DeleteBrush`, `DeleteDialog`, `DeleteFileButton`, `DialogAction`, `DialogBorder`, `DialogButton`, `DialogPink`, `DialogScene`, `DialogShape`, `DialogState`, `DialogSurface`, `FileRow`, `FilesScreen`, `PdfBlue`, `ReplayPill`, `RowShape`, `Scrim`, `TrashIcon`, `drawReplayGlyph`, `rememberDialogState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Wobble in** (`dialog-wobble`): Grows in with a jelly wobble and squashes flat when it closes. → `WobbleInDemo()` in `demos/dialog/WobbleInDemo.kt`
-  Copy `WobbleInDemo.kt`, `DialogStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `WobbleInDemo.kt`; from `DialogStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `AutoplayHoldMillis`, `DeleteBrush`, `DeleteDialog`, `DeleteFileButton`, `DialogAction`, `DialogBorder`, `DialogButton`, `DialogPink`, `DialogScene`, `DialogShape`, `DialogState`, `DialogSurface`, `FileRow`, `FilesScreen`, `PdfBlue`, `ReplayPill`, `RowShape`, `Scrim`, `TrashIcon`, `drawReplayGlyph`, `rememberDialogState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Screen transition
 
-Copy folder `demos/screentransition/` except `ScreenTransitionDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/screentransition/` except `ScreenTransitionDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Swipe back** (`screen-swipeback`): Drag from the left edge: the page follows your finger while the list slides back in behind it, slower and dimmed. Let go past 40% to go back. → `SwipeBackTransitionDemo()` in `demos/screentransition/SwipeBackTransitionDemo.kt`
-  Copy `SwipeBackTransitionDemo.kt`, `ScreenTransitionStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SwipeBackTransitionDemo.kt`; from `ScreenTransitionStyle.kt` only `AutoplayDelayMillis`, `AutoplayDetailMillis`, `AutoplayPauseMillis`, `AutoplayRounds`, `BookGradient`, `DetailScreen`, `ExploreScreen`, `LabelScrim`, `Navigator`, `PhoneAspect`, `PhoneBackdrop`, `PhoneShape`, `Place`, `PlaceCard`, `Places`, `TransitionScene`, `gardenArt`, `mix`, `oceanArt`, `peaksArt`, `rememberNavigator`, `snowCap`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `Stage` (showcase frame).
 - **Split doors** (`screen-doors`): The old screen splits down the middle and both halves slide apart like doors, revealing the new one behind. → `SplitDoorsTransitionDemo()` in `demos/screentransition/SplitDoorsTransitionDemo.kt`
-  Copy `SplitDoorsTransitionDemo.kt`, `ScreenTransitionStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SplitDoorsTransitionDemo.kt`; from `ScreenTransitionStyle.kt` only `AutoplayDelayMillis`, `AutoplayDetailMillis`, `AutoplayPauseMillis`, `AutoplayRounds`, `BookGradient`, `DetailScreen`, `ExploreScreen`, `LabelScrim`, `Navigator`, `PhoneAspect`, `PhoneBackdrop`, `PhoneShape`, `Place`, `PlaceCard`, `Places`, `TransitionScene`, `gardenArt`, `mix`, `oceanArt`, `peaksArt`, `rememberNavigator`, `snowCap`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `Stage` (showcase frame).
 - **Blinds** (`screen-blinds`): The new screen turns in on six horizontal slats, one after another from the top down. → `BlindsTransitionDemo()` in `demos/screentransition/BlindsTransitionDemo.kt`
-  Copy `BlindsTransitionDemo.kt`, `ScreenTransitionStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BlindsTransitionDemo.kt`; from `ScreenTransitionStyle.kt` only `AutoplayDelayMillis`, `AutoplayDetailMillis`, `AutoplayPauseMillis`, `AutoplayRounds`, `BookGradient`, `DetailScreen`, `ExploreScreen`, `LabelScrim`, `Navigator`, `PhoneAspect`, `PhoneBackdrop`, `PhoneShape`, `Place`, `PlaceCard`, `Places`, `TransitionScene`, `gardenArt`, `mix`, `oceanArt`, `peaksArt`, `rememberNavigator`, `snowCap`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `Stage` (showcase frame).
 - **Depth stack** (`screen-depth`): Screens stack in 3D: the old one tilts back, shrinks and darkens while the new one rises up from the bottom. → `DepthStackTransitionDemo()` in `demos/screentransition/DepthStackTransitionDemo.kt`
-  Copy `DepthStackTransitionDemo.kt`, `ScreenTransitionStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DepthStackTransitionDemo.kt`; from `ScreenTransitionStyle.kt` only `AutoplayDelayMillis`, `AutoplayDetailMillis`, `AutoplayPauseMillis`, `AutoplayRounds`, `BookGradient`, `DetailScreen`, `ExploreScreen`, `LabelScrim`, `Navigator`, `PhoneAspect`, `PhoneBackdrop`, `PhoneShape`, `Place`, `PlaceCard`, `Places`, `TransitionScene`, `gardenArt`, `mix`, `oceanArt`, `peaksArt`, `rememberNavigator`, `snowCap`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `Stage` (showcase frame).
 - **Blur dissolve** (`screen-blur`): The old screen blurs away as it fades while the new one sharpens into focus. → `BlurDissolveTransitionDemo()` in `demos/screentransition/BlurDissolveTransitionDemo.kt`
-  Copy `BlurDissolveTransitionDemo.kt`, `ScreenTransitionStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BlurDissolveTransitionDemo.kt`; from `ScreenTransitionStyle.kt` only `AutoplayDelayMillis`, `AutoplayDetailMillis`, `AutoplayPauseMillis`, `AutoplayRounds`, `BookGradient`, `DetailScreen`, `ExploreScreen`, `LabelScrim`, `Navigator`, `PhoneAspect`, `PhoneBackdrop`, `PhoneShape`, `Place`, `PlaceCard`, `Places`, `TransitionScene`, `gardenArt`, `mix`, `oceanArt`, `peaksArt`, `rememberNavigator`, `smoothstep`, `snowCap`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `Stage` (showcase frame).
 - **Liquid wipe** (`screen-liquid`): A wavy, glowing edge sweeps across from left to right, revealing the next screen behind it. → `LiquidWipeTransitionDemo()` in `demos/screentransition/LiquidWipeTransitionDemo.kt`
-  Copy `LiquidWipeTransitionDemo.kt`, `ScreenTransitionStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `LiquidWipeTransitionDemo.kt`; from `ScreenTransitionStyle.kt` only `AutoplayDelayMillis`, `AutoplayDetailMillis`, `AutoplayPauseMillis`, `AutoplayRounds`, `BookGradient`, `DetailScreen`, `ExploreScreen`, `LabelScrim`, `Navigator`, `PhoneAspect`, `PhoneBackdrop`, `PhoneShape`, `Place`, `PlaceCard`, `Places`, `TransitionScene`, `gardenArt`, `mix`, `oceanArt`, `peaksArt`, `rememberNavigator`, `smoothstep`, `snowCap`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `Stage` (showcase frame).
 
 ## Text & forms
 
@@ -386,93 +370,88 @@ Text fields, validation, passwords, codes and search.
 
 ### Text field
 
-Copy folder `demos/textfield/` except `TextFieldDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/textfield/` except `TextFieldDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Floating label** (`textfield-floating`): The placeholder floats up to the border and the outline opens a gap behind it. → `FloatingLabelDemo()` in `demos/textfield/FloatingLabelDemo.kt`
-  Copy `FloatingLabelDemo.kt`, `TextFieldStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `TextFieldStage` (showcase frame).
+  Copy `FloatingLabelDemo.kt`; from `TextFieldStyle.kt` only `FieldColors`, `ScriptedTextField`, `TypeMillis`, `TypingState`, `ValueStyle`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `TextFieldStage` (showcase frame).
 - **Underline grow** (`textfield-underline`): A gradient underline grows out both ways from wherever you tap. → `UnderlineGrowDemo()` in `demos/textfield/UnderlineGrowDemo.kt`
-  Copy `UnderlineGrowDemo.kt`, `TextFieldStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `TextFieldStage` (showcase frame).
+  Copy `UnderlineGrowDemo.kt`; from `TextFieldStyle.kt` only `FieldColors`, `FieldLabel`, `ScriptedTextField`, `TypeMillis`, `TypingState`, `ValueStyle`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `TextFieldStage` (showcase frame).
 - **Glow border** (`textfield-glow`): A comet of light circles the pill while it's focused; the code is uppercased as you type. → `GlowBorderDemo()` in `demos/textfield/GlowBorderDemo.kt`
-  Copy `GlowBorderDemo.kt`, `TextFieldStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `TextFieldStage` (showcase frame).
+  Copy `GlowBorderDemo.kt`; from `TextFieldStyle.kt` only `FieldColors`, `FieldLabel`, `ScriptedTextField`, `TypeMillis`, `TypingState`, `ValueStyle`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `TextFieldStage` (showcase frame).
 - **Live validation** (`textfield-validation`): The field checks as you type: pink with a hint while invalid, teal with a ✓ once it's a real email. → `LiveValidationDemo()` in `demos/textfield/LiveValidationDemo.kt`
-  Copy `LiveValidationDemo.kt`, `TextFieldStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `TextFieldStage` (showcase frame).
+  Copy `LiveValidationDemo.kt`; from `TextFieldStyle.kt` only `FieldColors`, `FieldLabel`, `FieldShape`, `ScriptedTextField`, `TypeMillis`, `TypingState`, `ValueStyle`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `TextFieldStage` (showcase frame).
 - **Password reveal** (`textfield-password`): Tap the eye and each dot flips over into its letter, left to right, then back. → `PasswordRevealDemo()` in `demos/textfield/PasswordRevealDemo.kt`
-  Copy `PasswordRevealDemo.kt`, `TextFieldStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `TextFieldStage` (showcase frame).
+  Copy `PasswordRevealDemo.kt`; from `TextFieldStyle.kt` only `FieldColors`, `FieldLabel`, `FieldShape`, `ScriptedTextField`, `TypeMillis`, `TypingState`, `ValueStyle`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `TextFieldStage` (showcase frame).
 - **Char counter** (`textfield-counter`): A ring fills as you type, turns amber near the limit and pink with a shake once you're over. → `CharCounterDemo()` in `demos/textfield/CharCounterDemo.kt`
-  Copy `CharCounterDemo.kt`, `TextFieldStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `TextFieldStage` (showcase frame).
+  Copy `CharCounterDemo.kt`; from `TextFieldStyle.kt` only `FieldColors`, `ScriptedTextField`, `TypeMillis`, `TypingState`, `ValueStyle`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `TextFieldStage` (showcase frame).
 
 ### Input error
 
-Copy folder `demos/inputerror/` except `InputErrorDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/inputerror/` except `InputErrorDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Zigzag underline** (`inputerror-zigzag`): The underline snaps into a red zigzag that buzzes flat. → `ZigzagUnderlineDemo()` in `demos/inputerror/ZigzagUnderlineDemo.kt`
-  Copy `ZigzagUnderlineDemo.kt`, `InputErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage`, `MenuStage` (showcase frame).
+  Copy `ZigzagUnderlineDemo.kt`; from `InputErrorStyle.kt` only `EmailField`, `EmailFormState`, `EmailPattern`, `FieldCorner`, `FieldShape`, `FieldStatus`, `InputColors`, `StatusBadge`, `ValueStyle`, `drawStatusBadge`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage` (showcase frame).
 - **Alert pop** (`inputerror-alert-pop`): A red ! pops out on a spring with a burst of sparks. → `AlertPopDemo()` in `demos/inputerror/AlertPopDemo.kt`
-  Copy `AlertPopDemo.kt`, `InputErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage`, `MenuStage` (showcase frame).
+  Copy `AlertPopDemo.kt`; from `InputErrorStyle.kt` only `EmailField`, `EmailFormState`, `EmailPattern`, `FieldCorner`, `FieldShape`, `FieldStatus`, `InputColors`, `StatusBadge`, `ValueStyle`, `drawStatusBadge`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage` (showcase frame).
 - **Message drop** (`inputerror-message-drop`): The message drops out from under the field and swings. → `MessageDropDemo()` in `demos/inputerror/MessageDropDemo.kt`
-  Copy `MessageDropDemo.kt`, `InputErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage`, `MenuStage` (showcase frame).
+  Copy `MessageDropDemo.kt`; from `InputErrorStyle.kt` only `EmailField`, `EmailFormState`, `EmailPattern`, `FieldCorner`, `FieldShape`, `FieldStatus`, `HelperRowHeight`, `HelperText`, `InputColors`, `StatusBadge`, `ValueStyle`, `drawStatusBadge`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage` (showcase frame).
 - **Red echo** (`inputerror-red-echo`): The border flashes red twice and sends out echo outlines. → `RedEchoDemo()` in `demos/inputerror/RedEchoDemo.kt`
-  Copy `RedEchoDemo.kt`, `InputErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage`, `MenuStage` (showcase frame).
+  Copy `RedEchoDemo.kt`; from `InputErrorStyle.kt` only `EmailField`, `EmailFormState`, `EmailPattern`, `FieldCorner`, `FieldShape`, `FieldStatus`, `InputColors`, `StatusBadge`, `ValueStyle`, `drawStatusBadge`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage` (showcase frame).
 - **Letter jitter** (`inputerror-letter-jitter`): Each letter hops and shivers red, one after another. → `LetterJitterDemo()` in `demos/inputerror/LetterJitterDemo.kt`
-  Copy `LetterJitterDemo.kt`, `InputErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage`, `MenuStage` (showcase frame).
+  Copy `LetterJitterDemo.kt`; from `InputErrorStyle.kt` only `EmailField`, `EmailFormState`, `EmailPattern`, `FieldCorner`, `FieldShape`, `FieldStatus`, `InputColors`, `StatusBadge`, `ValueStyle`, `drawStatusBadge`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage` (showcase frame).
 - **Tilt wobble** (`inputerror-tilt-wobble`): The whole field rocks side to side like jelly, then settles. → `TiltWobbleDemo()` in `demos/inputerror/TiltWobbleDemo.kt`
-  Copy `TiltWobbleDemo.kt`, `InputErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage`, `MenuStage` (showcase frame).
+  Copy `TiltWobbleDemo.kt`; from `InputErrorStyle.kt` only `EmailField`, `EmailFormState`, `EmailPattern`, `FieldCorner`, `FieldShape`, `FieldStatus`, `InputColors`, `StatusBadge`, `ValueStyle`, `drawStatusBadge`, `rememberCaretBlink`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `InputErrorStage` (showcase frame).
 
 ### Password strength
 
-Copy folder `demos/password/` except `PasswordDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/password/` except `PasswordDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Flow fill** (`password-flow-fill`): One liquid fill glides through the gaps and blends to the new color. → `FlowFillDemo()` in `demos/password/FlowFillDemo.kt`
-  Copy `FlowFillDemo.kt`, `PasswordStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `PasswordStage` (showcase frame).
+  Copy `FlowFillDemo.kt`; from `PasswordStyle.kt` only `PasswordColors`, `PasswordFormState`, `ScriptChunks`, `SegmentCount`, `SegmentGap`, `StrengthLevel`, `StrengthLevels`, `Weak`, `animateLevelColor`, `drawSegment`, `drawTrack`, `fillEndPx`, `segmentLeft`, `segmentWidth`, `segmentsPath`, `strengthOf`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `PasswordStage` (showcase frame).
 - **Block drop** (`password-block-drop`): Each new segment drops out of the field and lands with a squash. → `BlockDropDemo()` in `demos/password/BlockDropDemo.kt`
-  Copy `BlockDropDemo.kt`, `PasswordStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `PasswordStage` (showcase frame).
+  Copy `BlockDropDemo.kt`; from `PasswordStyle.kt` only `PasswordColors`, `PasswordFormState`, `ScriptChunks`, `SegmentCount`, `SegmentGap`, `StrengthLevel`, `StrengthLevels`, `Weak`, `animateLevelColor`, `drawSegment`, `drawTrack`, `segmentLeft`, `segmentWidth`, `strengthOf`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `PasswordStage` (showcase frame).
 - **Spark feed** (`password-spark-feed`): Every typed dot fires a spark that arcs down and fills the bar. → `SparkFeedDemo()` in `demos/password/SparkFeedDemo.kt`
-  Copy `SparkFeedDemo.kt`, `PasswordStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `PasswordStage` (showcase frame).
+  Copy `SparkFeedDemo.kt`; from `PasswordStyle.kt` only `PasswordColors`, `PasswordFormState`, `ScriptChunks`, `SegmentCount`, `SegmentGap`, `StrengthLabel`, `StrengthLevel`, `StrengthLevels`, `Weak`, `animateLevelColor`, `drawSegment`, `drawTrack`, `fillEndPx`, `segmentLeft`, `segmentWidth`, `segmentsPath`, `strengthOf`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `PasswordStage` (showcase frame).
 - **Chain light** (`password-chain-light`): Segments relight one after another like a chain, with a flash. → `ChainLightDemo()` in `demos/password/ChainLightDemo.kt`
-  Copy `ChainLightDemo.kt`, `PasswordStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `PasswordStage` (showcase frame).
+  Copy `ChainLightDemo.kt`; from `PasswordStyle.kt` only `PasswordColors`, `PasswordFormState`, `ScriptChunks`, `SegmentCount`, `SegmentGap`, `StrengthLevel`, `StrengthLevels`, `Weak`, `drawSegment`, `drawTrack`, `segmentLeft`, `segmentWidth`, `strengthOf`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `PasswordStage` (showcase frame).
 - **Flap label** (`password-flap-label`): The strength word flips like a split-flap board; segments flap open. → `FlapLabelDemo()` in `demos/password/FlapLabelDemo.kt`
-  Copy `FlapLabelDemo.kt`, `PasswordStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `PasswordStage` (showcase frame).
+  Copy `FlapLabelDemo.kt`; from `PasswordStyle.kt` only `PasswordColors`, `PasswordFormState`, `ScriptChunks`, `SegmentCount`, `SegmentGap`, `StrengthLabel`, `StrengthLevel`, `StrengthLevels`, `Weak`, `animateLevelColor`, `strengthOf`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `PasswordStage` (showcase frame).
 - **Liquid link** (`password-liquid-link`): The fill oozes across the gap like liquid, then the neck snaps. → `LiquidLinkDemo()` in `demos/password/LiquidLinkDemo.kt`
-  Copy `LiquidLinkDemo.kt`, `PasswordStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `PasswordStage` (showcase frame).
+  Copy `LiquidLinkDemo.kt`; from `PasswordStyle.kt` only `PasswordColors`, `PasswordFormState`, `ScriptChunks`, `SegmentCount`, `SegmentGap`, `StrengthLevel`, `StrengthLevels`, `Weak`, `animateLevelColor`, `drawSegment`, `drawTrack`, `segmentLeft`, `segmentWidth`, `strengthOf`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `PasswordStage` (showcase frame).
 
 ### Verification code
 
-Copy folder `demos/otp/` except `OtpDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/otp/` except `OtpDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Box bounce** (`otp-bounce`): Each digit drops into its box, which squashes and bounces back. → `BoxBounceOtpDemo()` in `demos/otp/BoxBounceOtpDemo.kt`
-  Copy `BoxBounceOtpDemo.kt`, `OtpStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BoxBounceOtpDemo.kt`; from `OtpStyle.kt` only `AutoplayCode`, `BlinkingCaret`, `BoxCorner`, `CodeLength`, `DisabledButton`, `OtpBox`, `OtpColors`, `OtpDigit`, `OtpMetrics`, `OtpScene`, `OtpState`, `ReplayPill`, `VerifyButton`, `drawCheck`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Stretchy focus** (`otp-focus`): The focus ring stretches box to box, then wraps the whole code. → `StretchyFocusOtpDemo()` in `demos/otp/StretchyFocusOtpDemo.kt`
-  Copy `StretchyFocusOtpDemo.kt`, `OtpStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `StretchyFocusOtpDemo.kt`; from `OtpStyle.kt` only `AutoplayCode`, `BlinkingCaret`, `BoxCorner`, `CodeLength`, `DisabledButton`, `OtpBox`, `OtpColors`, `OtpDigit`, `OtpMetrics`, `OtpScene`, `OtpState`, `PopDigit`, `ReplayPill`, `VerifyButton`, `drawCheck`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Digit spin** (`otp-spin`): Digits spin into place like a slot machine, then spin once more. → `DigitSpinOtpDemo()` in `demos/otp/DigitSpinOtpDemo.kt`
-  Copy `DigitSpinOtpDemo.kt`, `OtpStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DigitSpinOtpDemo.kt`; from `OtpStyle.kt` only `AutoplayCode`, `BlinkingCaret`, `BoxCorner`, `CodeLength`, `DisabledButton`, `OtpBox`, `OtpColors`, `OtpDigit`, `OtpMetrics`, `OtpScene`, `OtpState`, `ReplayPill`, `VerifyButton`, `drawCheck`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Box merge** (`otp-merge`): Digits pop in; on success the six boxes slide into one bar. → `BoxMergeOtpDemo()` in `demos/otp/BoxMergeOtpDemo.kt`
-  Copy `BoxMergeOtpDemo.kt`, `OtpStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BoxMergeOtpDemo.kt`; from `OtpStyle.kt` only `AutoplayCode`, `BlinkingCaret`, `BoxCorner`, `CodeLength`, `DisabledButton`, `OtpColors`, `OtpDigit`, `OtpMetrics`, `OtpScene`, `OtpState`, `PopDigit`, `ReplayPill`, `VerifyButton`, `drawCheck`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Zoom land** (`otp-zoom`): Each digit zooms in from big and lands; a shine turns them mint. → `ZoomLandOtpDemo()` in `demos/otp/ZoomLandOtpDemo.kt`
-  Copy `ZoomLandOtpDemo.kt`, `OtpStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ZoomLandOtpDemo.kt`; from `OtpStyle.kt` only `AutoplayCode`, `BlinkingCaret`, `BoxCorner`, `CodeLength`, `DisabledButton`, `OtpBox`, `OtpColors`, `OtpDigit`, `OtpMetrics`, `OtpScene`, `OtpState`, `ReplayPill`, `VerifyButton`, `drawCheck`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Tint rise** (`otp-tint`): Each box fills with color from the bottom as its digit lands. → `TintRiseOtpDemo()` in `demos/otp/TintRiseOtpDemo.kt`
-  Copy `TintRiseOtpDemo.kt`, `OtpStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `TintRiseOtpDemo.kt`; from `OtpStyle.kt` only `AutoplayCode`, `BlinkingCaret`, `BoxCorner`, `CodeLength`, `DisabledButton`, `OtpBox`, `OtpColors`, `OtpDigit`, `OtpMetrics`, `OtpScene`, `OtpState`, `ReplayPill`, `VerifyButton`, `drawCheck`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Search
 
-Copy folder `demos/search/` except `SearchDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/search/` except `SearchDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Icon expand** (`search-expand`): The round button stretches into a search bar; text types in. → `IconExpandDemo()` in `demos/search/IconExpandDemo.kt`
-  Copy `IconExpandDemo.kt`, `SearchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `SearchStage` (showcase frame).
+  Copy `IconExpandDemo.kt`; from `SearchStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `ClearButton`, `FieldHeight`, `GlowBrush`, `MagnifierIcon`, `Query`, `QueryStyle`, `SearchColors`, `SearchField`, `TypeDelayMillis`, `drawMagnifier`, `fieldChrome`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SearchStage` (showcase frame).
 - **Live suggestions** (`search-suggestions`): Type “sun”: suggestions drop in one by one, with the match in bold. → `LiveSuggestionsDemo()` in `demos/search/LiveSuggestionsDemo.kt`
-  Copy `LiveSuggestionsDemo.kt`, `SearchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `SearchStage` (showcase frame).
+  Copy `LiveSuggestionsDemo.kt`; from `SearchStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `FieldHeight`, `GlowBrush`, `MagnifierIcon`, `Query`, `QueryStyle`, `SearchColors`, `SearchField`, `TypeDelayMillis`, `drawArrowUpRight`, `drawMagnifier`, `fieldChrome`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SearchStage` (showcase frame).
 - **Clear field** (`search-clear`): Tap ×: the letters fall away, the placeholder fades in, then retype. → `ClearFieldDemo()` in `demos/search/ClearFieldDemo.kt`
-  Copy `ClearFieldDemo.kt`, `SearchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage`, `SearchStage` (showcase frame).
+  Copy `ClearFieldDemo.kt`; from `SearchStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `ClearButton`, `FieldHeight`, `GlowBrush`, `MagnifierIcon`, `Query`, `QueryStyle`, `SearchColors`, `SearchField`, `TypeDelayMillis`, `drawMagnifier`, `fieldChrome`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `SearchStage` (showcase frame).
 - **Voice search** (`search-voice`): Tap the mic: rings pulse, the wave dances, words pop in. → `VoiceSearchDemo()` in `demos/search/VoiceSearchDemo.kt`
-  Copy `VoiceSearchDemo.kt`, `SearchStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `MenuStage`, `SearchStage` (showcase frame).
+  Copy `VoiceSearchDemo.kt`; from `SearchStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `FieldHeight`, `GlowBrush`, `MagnifierIcon`, `Query`, `QueryStyle`, `SearchColors`, `SearchField`, `TypeDelayMillis`, `drawMagnifier`, `fieldChrome`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `Glyph`, `GlyphIcon`, `MenuColors`. Strip `SearchStage` (showcase frame).
 - **Focus morph** (`search-focus`): Tap the bar: the title slides away, the bar rises, Cancel slides in. → `FocusMorphDemo()` in `demos/search/FocusMorphDemo.kt`
-  Copy `FocusMorphDemo.kt`, `SearchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`, `StaggerIn`. Strip `MenuStage`, `SearchStage` (showcase frame).
+  Copy `FocusMorphDemo.kt`; from `SearchStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `FieldHeight`, `GlowBrush`, `MagnifierIcon`, `Pill`, `Query`, `QueryStyle`, `SearchColors`, `SearchField`, `TypeDelayMillis`, `drawClock`, `drawMagnifier`, `fieldChrome`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `MenuColors`, `StaggerIn`. Strip `SearchStage` (showcase frame).
 - **Search loading** (`search-loading`): Enter: the icon spins, skeletons shimmer, results fade in. → `SearchLoadingDemo()` in `demos/search/SearchLoadingDemo.kt`
-  Copy `SearchLoadingDemo.kt`, `SearchStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`, `StaggerIn`. Strip `MenuStage`, `SearchStage` (showcase frame).
+  Copy `SearchLoadingDemo.kt`; from `SearchStyle.kt` only `Autoplay`, `AutoplayDelayMillis`, `AutoplayEffect`, `FieldHeight`, `GlowBrush`, `MagnifierIcon`, `Pill`, `Query`, `QueryStyle`, `SearchColors`, `SearchField`, `TypeDelayMillis`, `drawArrowRight`, `drawMagnifier`, `fieldChrome`, `rememberAutoplay`; from `demos/menus/MenuStyle.kt` only `MenuColors`, `StaggerIn`. Strip `SearchStage` (showcase frame).
 
 ## Feedback & errors
 
@@ -480,75 +459,71 @@ Error states, progress steps and pull to refresh.
 
 ### Error · Part 1
 
-Copy folder `demos/error1/` except `ErrorPart1Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/checkbox1/CheckboxStyle.kt`, `demos/menus/MenuStyle.kt`.
+Copy folder `demos/error1/` except `ErrorPart1Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Shake input** (`error1-shake-input`): Email field shakes, its border turns red, and "Enter a valid email" slides in. → `ShakeInputDemo()` in `demos/error1/ShakeInputDemo.kt`
-  Copy `ShakeInputDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `ShakeInputDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`, `drawAlertBadge`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Cross draw** (`error1-cross`): Ring draws in, turns red, then a white ✕ strokes in with a quick shake. → `CrossDrawDemo()` in `demos/error1/CrossDrawDemo.kt`
-  Copy `CrossDrawDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `CrossDrawDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Button fail** (`error1-button`): Button spins, turns red with an ✕ and shakes, then reads "Try again". → `ButtonFailDemo()` in `demos/error1/ButtonFailDemo.kt`
-  Copy `ButtonFailDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `ButtonFailDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`, `Spinner`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Error toast** (`error1-toast`): A red "Couldn't save" toast drops in from the top, then slides away. → `ErrorToastDemo()` in `demos/error1/ErrorToastDemo.kt`
-  Copy `ErrorToastDemo.kt`, `ErrorStyle.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `ErrorToastDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`, `Spinner`, `drawAlertBadge`; from `demos/checkbox1/CheckboxStyle.kt` only `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **PIN shake** (`error1-pin`): Passcode dots fill in, turn red and shake, then clear one by one. → `PinShakeDemo()` in `demos/error1/PinShakeDemo.kt`
-  Copy `PinShakeDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
+  Copy `PinShakeDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 - **Upload failed** (`error1-upload`): Upload bar stalls at 68%, turns red: "Upload failed" with a Retry chip. → `UploadFailedDemo()` in `demos/error1/UploadFailedDemo.kt`
-  Copy `UploadFailedDemo.kt`, `ErrorStyle.kt`; from `demos/checkbox1/CheckboxStyle.kt` only `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage`, `MenuStage` (showcase frame).
+  Copy `UploadFailedDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`, `drawAlertBadge`, `drawDoneBadge`, `drawRetryGlyph`; from `demos/checkbox1/CheckboxStyle.kt` only `checkPanel`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `CheckboxStage` (showcase frame).
 
 ### Error · Part 2
 
-Copy folder `demos/error2/` except `ErrorDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/error2/` except `ErrorDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Offline** (`error2-offline`): Wi-Fi arcs scan, then a red slash cuts through: "No connection". → `OfflineErrorDemo()` in `demos/error2/OfflineErrorDemo.kt`
-  Copy `OfflineErrorDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage`, `MenuStage` (showcase frame).
+  Copy `OfflineErrorDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage` (showcase frame).
 - **Card declined** (`error2-card-declined`): Card flips over to a red back: "Card declined". Flips back a second later. → `CardDeclinedDemo()` in `demos/error2/CardDeclinedDemo.kt`
-  Copy `CardDeclinedDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage`, `MenuStage` (showcase frame).
+  Copy `CardDeclinedDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage` (showcase frame).
 - **Warning pulse** (`error2-warning`): Triangle outline draws in, fills red with "!", and sends out pulse rings. → `WarningPulseDemo()` in `demos/error2/WarningPulseDemo.kt`
-  Copy `WarningPulseDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage`, `MenuStage` (showcase frame).
+  Copy `WarningPulseDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage` (showcase frame).
 - **Glitch** (`error2-glitch`): "200 OK" glitches with RGB split and sliced lines into a red "500". → `GlitchDemo()` in `demos/error2/GlitchDemo.kt`
-  Copy `GlitchDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage`, `MenuStage` (showcase frame).
+  Copy `GlitchDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage` (showcase frame).
 - **404 Not found** (`error2-404`): Magnifier searches the page, then its lens becomes the 0 in "404". → `NotFoundDemo()` in `demos/error2/NotFoundDemo.kt`
-  Copy `NotFoundDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage`, `MenuStage` (showcase frame).
+  Copy `NotFoundDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage` (showcase frame).
 - **Password rules** (`error2-password`): Password rules check at once: one cyan ✓, two red ✕ that shake. → `PasswordRulesDemo()` in `demos/error2/PasswordRulesDemo.kt`
-  Copy `PasswordRulesDemo.kt`, `ErrorStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage`, `MenuStage` (showcase frame).
+  Copy `PasswordRulesDemo.kt`; from `ErrorStyle.kt` only `ErrorColors`, `shakeOffset`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `ErrorStage` (showcase frame).
 
 ### Progress steps
 
-Copy folder `demos/progresssteps/` except `ProgressStepsDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/progresssteps/` except `ProgressStepsDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Bead line** (`steps-bead`): A glowing bead runs along the line to the next dot; the passed segment lights up and the dot gets a ring. → `BeadLineDemo()` in `demos/progresssteps/BeadLineDemo.kt`
-  Copy `BeadLineDemo.kt`, `StepsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BeadLineDemo.kt`; from `StepsStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `Chevron`, `LastStep`, `Pill`, `StartStep`, `StepButton`, `StepColors`, `StepControls`, `StepLabel`, `StepNames`, `StepsScene`, `StepsState`, `backOut`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Big number** (`steps-number`): The giant step number flips like a split-flap board while the step name rolls and the bar fills. → `BigNumberDemo()` in `demos/progresssteps/BigNumberDemo.kt`
-  Copy `BigNumberDemo.kt`, `StepsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BigNumberDemo.kt`; from `StepsStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `Chevron`, `LastStep`, `Pill`, `StartStep`, `StepButton`, `StepColors`, `StepControls`, `StepNames`, `StepsScene`, `StepsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Back & next** (`steps-backnext`): Next fills the line to the next dot and slides the title in from the right; Back reverses both. → `BackNextDemo()` in `demos/progresssteps/BackNextDemo.kt`
-  Copy `BackNextDemo.kt`, `StepsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BackNextDemo.kt`; from `StepsStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `Chevron`, `LastStep`, `Pill`, `StartStep`, `StepButton`, `StepColors`, `StepControls`, `StepNames`, `StepsScene`, `StepsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Skill path** (`steps-path`): Done nodes turn gold with a tick, the current one hops; advancing fills the dotted path and unlocks the next node with a pop. → `SkillPathDemo()` in `demos/progresssteps/SkillPathDemo.kt`
-  Copy `SkillPathDemo.kt`, `StepsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SkillPathDemo.kt`; from `StepsStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `Chevron`, `LastStep`, `Pill`, `StartStep`, `StepButton`, `StepColors`, `StepControls`, `StepNames`, `StepsScene`, `StepsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Level blocks** (`steps-blocks`): A little ball hops up to the next block's top as that block springs taller; the blocks behind it stay lit. → `LevelBlocksDemo()` in `demos/progresssteps/LevelBlocksDemo.kt`
-  Copy `LevelBlocksDemo.kt`, `StepsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `LevelBlocksDemo.kt`; from `StepsStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `Chevron`, `LastStep`, `Pill`, `StartStep`, `StepButton`, `StepColors`, `StepControls`, `StepLabel`, `StepNames`, `StepsScene`, `StepsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Gauge arc** (`steps-gauge`): The filled arc sweeps to the next step and the needle springs there with a wobble; the hub shows the step number. → `GaugeArcDemo()` in `demos/progresssteps/GaugeArcDemo.kt`
-  Copy `GaugeArcDemo.kt`, `StepsStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `GaugeArcDemo.kt`; from `StepsStyle.kt` only `AutoplayDelayMillis`, `AutoplayGapMillis`, `Chevron`, `LastStep`, `Pill`, `StartStep`, `StepButton`, `StepColors`, `StepControls`, `StepNames`, `StepsScene`, `StepsState`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Pull to refresh
 
-Copy folder `demos/pullrefresh/` except `PullRefreshDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/pullrefresh/` except `PullRefreshDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Top line** (`pullrefresh-line`): A line grows out from the middle as you pull; while it refreshes a light runs back and forth along it. → `TopLineRefreshDemo()` in `demos/pullrefresh/TopLineRefreshDemo.kt`
-  Copy `TopLineRefreshDemo.kt`, `PullRefreshStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `TopLineRefreshDemo.kt`; from `PullRefreshStyle.kt` only `Avatar`, `AvatarSize`, `CollapseMillis`, `FeedIcon`, `FeedItem`, `FeedPost`, `FeedRow`, `FirstNewId`, `InitialFeed`, `MaxPull`, `NewPosts`, `PullRefreshScene`, `PullRefreshState`, `RefreshMillis`, `RefreshPhase`, `RefreshThreshold`, `ReplayPill`, `RowGap`, `RowHeight`, `RowPadding`, `drawFeedIcon`, `rememberPullRefreshState`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Spring coil** (`pullrefresh-coil`): A coil spring stretches with the pull and bounces when you let go, a little weight hanging on top. → `SpringCoilRefreshDemo()` in `demos/pullrefresh/SpringCoilRefreshDemo.kt`
-  Copy `SpringCoilRefreshDemo.kt`, `PullRefreshStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `SpringCoilRefreshDemo.kt`; from `PullRefreshStyle.kt` only `Avatar`, `AvatarSize`, `CollapseMillis`, `FeedIcon`, `FeedItem`, `FeedPost`, `FeedRow`, `FirstNewId`, `InitialFeed`, `MaxPull`, `NewPosts`, `PullRefreshScene`, `PullRefreshState`, `RefreshMillis`, `RefreshPhase`, `RefreshThreshold`, `ReplayPill`, `RowGap`, `RowHeight`, `RowPadding`, `drawFeedIcon`, `rememberPullRefreshState`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Sync spin** (`pullrefresh-sync`): A refresh icon turns with the pull, spins while it loads, then morphs into a check. → `SyncSpinRefreshDemo()` in `demos/pullrefresh/SyncSpinRefreshDemo.kt`
-  Copy `SyncSpinRefreshDemo.kt`, `PullRefreshStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `SyncSpinRefreshDemo.kt`; from `PullRefreshStyle.kt` only `Avatar`, `AvatarSize`, `CollapseMillis`, `FeedIcon`, `FeedItem`, `FeedPost`, `FeedRow`, `FirstNewId`, `InitialFeed`, `MaxPull`, `NewPosts`, `PullRefreshScene`, `PullRefreshState`, `RefreshMillis`, `RefreshPhase`, `RefreshThreshold`, `ReplayPill`, `RowGap`, `RowHeight`, `RowPadding`, `drawFeedIcon`, `rememberPullRefreshState`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Chevron stack** (`pullrefresh-chevrons`): Three chevrons light up one by one as you pull; while it refreshes a light runs down them. → `ChevronStackRefreshDemo()` in `demos/pullrefresh/ChevronStackRefreshDemo.kt`
-  Copy `ChevronStackRefreshDemo.kt`, `PullRefreshStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `ChevronStackRefreshDemo.kt`; from `PullRefreshStyle.kt` only `Avatar`, `AvatarSize`, `CollapseMillis`, `FeedIcon`, `FeedItem`, `FeedPost`, `FeedRow`, `FirstNewId`, `InitialFeed`, `MaxPull`, `NewPosts`, `PullRefreshScene`, `PullRefreshState`, `RefreshMillis`, `RefreshPhase`, `RefreshThreshold`, `ReplayPill`, `RowGap`, `RowHeight`, `RowPadding`, `drawFeedIcon`, `rememberPullRefreshState`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Avatar drop** (`pullrefresh-avatar`): The new post's avatar peeks out as you pull, then drops into its row when the refresh lands. → `AvatarDropRefreshDemo()` in `demos/pullrefresh/AvatarDropRefreshDemo.kt`
-  Copy `AvatarDropRefreshDemo.kt`, `PullRefreshStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `AvatarDropRefreshDemo.kt`; from `PullRefreshStyle.kt` only `Avatar`, `AvatarSize`, `CollapseMillis`, `FeedIcon`, `FeedItem`, `FeedPost`, `FeedRow`, `FirstNewId`, `InitialFeed`, `MaxPull`, `NewPosts`, `PullRefreshScene`, `PullRefreshState`, `RefreshMillis`, `RefreshPhase`, `RefreshThreshold`, `ReplayPill`, `RowGap`, `RowHeight`, `RowPadding`, `drawFeedIcon`, `rememberPullRefreshState`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 - **Logo trace** (`pullrefresh-logo`): The logo draws itself as you pull, then fills with colour and spins while it refreshes. → `LogoTraceRefreshDemo()` in `demos/pullrefresh/LogoTraceRefreshDemo.kt`
-  Copy `LogoTraceRefreshDemo.kt`, `PullRefreshStyle.kt`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
+  Copy `LogoTraceRefreshDemo.kt`; from `PullRefreshStyle.kt` only `Avatar`, `AvatarSize`, `CollapseMillis`, `FeedIcon`, `FeedItem`, `FeedPost`, `FeedRow`, `FirstNewId`, `InitialFeed`, `MaxPull`, `NewPosts`, `PullRefreshScene`, `PullRefreshState`, `RefreshMillis`, `RefreshPhase`, `RefreshThreshold`, `ReplayPill`, `RowGap`, `RowHeight`, `RowPadding`, `drawFeedIcon`, `rememberPullRefreshState`; from `demos/menus/MenuStyle.kt` only `Glyph`, `MenuColors`, `drawGlyph`. Strip `MenuStage` (showcase frame).
 
 ## Lists & data
 
@@ -556,47 +531,44 @@ Drag and drop, swipe to delete and number counters.
 
 ### Kanban CRM
 
-Copy folder `demos/kanban/`. For a single animation use its own Copy line below.
-Whole set also needs: `common/Confetti.kt`, `common/CountUp.kt`.
+Copy folder `demos/kanban/`. To port one animation use its own Copy line below instead.
 
 - **Drag & drop board** (`kanban`): Lift, tilt, column glow, confetti and counters. → `KanbanDemo()` in `demos/kanban/KanbanDemo.kt`
   Copy `KanbanDemo.kt`; from `common/Confetti.kt` only `Confetti`, `rememberConfettiState`; from `common/CountUp.kt` only `countUp`.
 
 ### Swipe to delete
 
-Copy folder `demos/swipedelete/` except `SwipeDeleteDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/swipedelete/` except `SwipeDeleteDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Bin lid flip** (`swipedelete-bin`): A red bin is revealed; its lid flips open, then the red bar closes up. → `BinLidFlipDemo()` in `demos/swipedelete/BinLidFlipDemo.kt`
-  Copy `BinLidFlipDemo.kt`, `SwipeDeleteStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BinLidFlipDemo.kt`; from `SwipeDeleteStyle.kt` only `AutoplayDelayMillis`, `AutoplayHoldMillis`, `AutoplayTravel`, `CollapseMillis`, `DeleteRed`, `DeleteRedLight`, `DeleteThreshold`, `FlingVelocity`, `InboxSize`, `Message`, `MessageRow`, `ReplayPill`, `RowGap`, `RowHeight`, `RowShape`, `SwipeDeleteScene`, `SwipeRowState`, `SwipeSlot`, `SwipeSpec`, `coerceIn`, `drawTrash`, `inbox`, `lerp`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Pop to dot** (`swipedelete-pop`): The row turns red, shrinks into a dot and pops into sparks. → `PopToDotDemo()` in `demos/swipedelete/PopToDotDemo.kt`
-  Copy `PopToDotDemo.kt`, `SwipeDeleteStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `PopToDotDemo.kt`; from `SwipeDeleteStyle.kt` only `AutoplayDelayMillis`, `AutoplayHoldMillis`, `AutoplayTravel`, `CollapseMillis`, `DeleteRed`, `DeleteRedLight`, `DeleteThreshold`, `FlingVelocity`, `InboxSize`, `Message`, `MessageRow`, `ReplayPill`, `RowGap`, `RowHeight`, `RowShape`, `SwipeDeleteScene`, `SwipeRowState`, `SwipeSlot`, `SwipeSpec`, `coerceIn`, `inbox`, `lerp`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Blade slice** (`swipedelete-blade`): A blade line follows the finger and the row splits in two. → `BladeSliceDemo()` in `demos/swipedelete/BladeSliceDemo.kt`
-  Copy `BladeSliceDemo.kt`, `SwipeDeleteStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BladeSliceDemo.kt`; from `SwipeDeleteStyle.kt` only `AutoplayDelayMillis`, `AutoplayHoldMillis`, `AutoplayTravel`, `CollapseMillis`, `DeleteThreshold`, `FlingVelocity`, `InboxSize`, `Message`, `MessageRow`, `ReplayPill`, `RowGap`, `RowHeight`, `RowShape`, `SwipeDeleteScene`, `SwipeRowState`, `SwipeSlot`, `SwipeSpec`, `inbox`, `lerp`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Dust crumble** (`swipedelete-dust`): The row crumbles into sand from right to left and blows away. → `DustCrumbleDemo()` in `demos/swipedelete/DustCrumbleDemo.kt`
-  Copy `DustCrumbleDemo.kt`, `SwipeDeleteStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DustCrumbleDemo.kt`; from `SwipeDeleteStyle.kt` only `AutoplayDelayMillis`, `AutoplayHoldMillis`, `AutoplayTravel`, `CollapseMillis`, `DeleteThreshold`, `FlingVelocity`, `InboxSize`, `Message`, `MessageRow`, `ReplayPill`, `RowGap`, `RowHeight`, `RowShape`, `SwipeDeleteScene`, `SwipeRowState`, `SwipeSlot`, `SwipeSpec`, `coerceIn`, `inbox`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Elastic snap** (`swipedelete-elastic`): It stretches like rubber, then snaps off to the left. → `ElasticSnapDemo()` in `demos/swipedelete/ElasticSnapDemo.kt`
-  Copy `ElasticSnapDemo.kt`, `SwipeDeleteStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `ElasticSnapDemo.kt`; from `SwipeDeleteStyle.kt` only `AutoplayDelayMillis`, `AutoplayHoldMillis`, `AutoplayTravel`, `CollapseMillis`, `DeleteThreshold`, `FlingVelocity`, `InboxSize`, `Message`, `MessageRow`, `ReplayPill`, `RowGap`, `RowHeight`, `RowShape`, `SwipeDeleteScene`, `SwipeRowState`, `SwipeSlot`, `SwipeSpec`, `coerceIn`, `inbox`, `lerp`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Genie bin** (`swipedelete-genie`): The row is sucked into a little red bin like a genie. → `GenieBinDemo()` in `demos/swipedelete/GenieBinDemo.kt`
-  Copy `GenieBinDemo.kt`, `SwipeDeleteStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `GenieBinDemo.kt`; from `SwipeDeleteStyle.kt` only `AutoplayDelayMillis`, `AutoplayHoldMillis`, `AutoplayTravel`, `CollapseMillis`, `DeleteRed`, `DeleteRedLight`, `DeleteThreshold`, `FlingVelocity`, `InboxSize`, `Message`, `MessageRow`, `ReplayPill`, `RowGap`, `RowHeight`, `RowShape`, `SwipeDeleteScene`, `SwipeRowState`, `SwipeSlot`, `SwipeSpec`, `coerceIn`, `inbox`, `lerp`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ### Number counter
 
-Copy folder `demos/counter/` except `CounterDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/counter/` except `CounterDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Odometer roll** (`counter-odometer`): Each digit rolls through the numbers like a car odometer; the right-hand digits roll furthest. → `OdometerRollDemo()` in `demos/counter/OdometerRollDemo.kt`
-  Copy `OdometerRollDemo.kt`, `CounterStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `OdometerRollDemo.kt`; from `CounterStyle.kt` only `BarGradient`, `CounterScene`, `DayTabs`, `Days`, `DigitCell`, `DigitCount`, `DigitRow`, `Goal`, `GoalBar`, `NumberStyle`, `Places`, `TabGradient`, `digitsOf`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Split flap** (`counter-flap`): Each digit flaps down in two halves like an airport board, left to right. → `SplitFlapDemo()` in `demos/counter/SplitFlapDemo.kt`
-  Copy `SplitFlapDemo.kt`, `CounterStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SplitFlapDemo.kt`; from `CounterStyle.kt` only `BarGradient`, `CounterScene`, `DayTabs`, `Days`, `DigitCell`, `DigitCount`, `DigitRow`, `Goal`, `GoalBar`, `NumberStyle`, `Places`, `TabGradient`, `digitsOf`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Blur slide** (`counter-blur`): The number slides down with motion blur while the new one slides in from the top. → `BlurSlideDemo()` in `demos/counter/BlurSlideDemo.kt`
-  Copy `BlurSlideDemo.kt`, `CounterStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `BlurSlideDemo.kt`; from `CounterStyle.kt` only `BarGradient`, `CounterScene`, `DayTabs`, `Days`, `DigitCount`, `Goal`, `GoalBar`, `NumberStyle`, `TabGradient`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Spring stagger** (`counter-spring`): Digits swap one by one from the left; each new one drops in from above with a springy bounce. → `SpringStaggerDemo()` in `demos/counter/SpringStaggerDemo.kt`
-  Copy `SpringStaggerDemo.kt`, `CounterStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SpringStaggerDemo.kt`; from `CounterStyle.kt` only `BarGradient`, `CounterScene`, `DayTabs`, `Days`, `DigitCell`, `DigitCount`, `DigitRow`, `Goal`, `GoalBar`, `NumberStyle`, `Places`, `TabGradient`, `digitsOf`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Decode lock** (`counter-decode`): Digits scramble through random numbers, then lock in on the new value from left to right. → `DecodeLockDemo()` in `demos/counter/DecodeLockDemo.kt`
-  Copy `DecodeLockDemo.kt`, `CounterStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `DecodeLockDemo.kt`; from `CounterStyle.kt` only `BarGradient`, `CounterScene`, `DayTabs`, `Days`, `DigitCell`, `DigitCount`, `DigitRow`, `Goal`, `GoalBar`, `NumberStyle`, `Places`, `TabGradient`, `digitsOf`, `toString`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 - **Smooth count** (`counter-count`): The number counts to the new total, glowing mint with ▲ when it rises or pink with ▼ when it falls. → `SmoothCountDemo()` in `demos/counter/SmoothCountDemo.kt`
-  Copy `SmoothCountDemo.kt`, `CounterStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
+  Copy `SmoothCountDemo.kt`; from `CounterStyle.kt` only `BarGradient`, `CounterScene`, `DayTabs`, `Days`, `DigitCount`, `Goal`, `GoalBar`, `NumberStyle`, `TabGradient`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `MenuStage` (showcase frame).
 
 ## Likes & reactions
 
@@ -604,39 +576,37 @@ Hearts, stars, bookmarks and reaction pickers.
 
 ### Like
 
-Copy folder `demos/like/` except `LikeDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/like/` except `LikeDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Heart burst** (`like-burst`): The heart pops and fills, a ring ripples out and twelve tiny hearts and dots burst around it. → `HeartBurstDemo()` in `demos/like/HeartBurstDemo.kt`
-  Copy `HeartBurstDemo.kt`, `LikeStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `HeartBurstDemo.kt`; from `LikeStyle.kt` only `LikeColors`, `SparkColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Double-tap heart** (`like-double-tap`): Double-tap the photo: a big heart bounces in where you tapped, floats away, and the like fills pink. → `DoubleTapHeartDemo()` in `demos/like/DoubleTapHeartDemo.kt`
-  Copy `DoubleTapHeartDemo.kt`, `LikeStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `DoubleTapHeartDemo.kt`; from `LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Count roll** (`like-count`): The heart pops, only the digits that change roll up, and a +1 floats away. → `CountRollDemo()` in `demos/like/CountRollDemo.kt`
-  Copy `CountRollDemo.kt`, `LikeStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `CountRollDemo.kt`; from `LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Floating hearts** (`like-floating`): Tap or hold the heart: colourful hearts float up the stream, swaying as they fade. → `FloatingHeartsDemo()` in `demos/like/FloatingHeartsDemo.kt`
-  Copy `FloatingHeartsDemo.kt`, `LikeStyle.kt`; from `demos/menus/MenuStyle.kt` only `Bar`, `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `FloatingHeartsDemo.kt`; from `LikeStyle.kt` only `LikeColors`, `heart`; from `demos/menus/MenuStyle.kt` only `Bar`, `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Outline fill** (`like-outline-fill`): The outline draws itself; press and hold to pour in rising liquid, and a full heart beats. → `OutlineFillDemo()` in `demos/like/OutlineFillDemo.kt`
-  Copy `OutlineFillDemo.kt`, `LikeStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `OutlineFillDemo.kt`; from `LikeStyle.kt` only `LikeColors`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Thumbs up** (`like-thumbs-up`): The tilted thumb springs upright with a wobble, fills violet to cyan and throws off sparks. → `ThumbsUpDemo()` in `demos/like/ThumbsUpDemo.kt`
-  Copy `ThumbsUpDemo.kt`, `LikeStyle.kt`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `ThumbsUpDemo.kt`; from `LikeStyle.kt` only `LikeColors`, `SparkColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 
 ### Like · Part 2
 
-Copy folder `demos/like2/` except `Like2Demos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/like/LikeStyle.kt`, `demos/menus/MenuStyle.kt`.
+Copy folder `demos/like2/` except `Like2Demos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Jelly squish** (`like2-jelly`): Press squashes the heart; on release it fills and jiggles like jelly. → `JellySquishDemo()` in `demos/like2/JellySquishDemo.kt`
-  Copy `JellySquishDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `JellySquishDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Star favorite** (`like2-star`): Tap: the star spins once, fills gold→pink, and sparkles twinkle. → `StarFavoriteDemo()` in `demos/like2/StarFavoriteDemo.kt`
-  Copy `StarFavoriteDemo.kt`, `Like2Style.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `StarFavoriteDemo.kt`; from `Like2Style.kt` only `StarPoints`, `star`, `starPoint`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Bookmark save** (`like2-bookmark`): Tap: the bookmark stretches, fills violet→cyan, a "Saved" toast pops. → `BookmarkSaveDemo()` in `demos/like2/BookmarkSaveDemo.kt`
-  Copy `BookmarkSaveDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `BookmarkSaveDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Reaction picker** (`like2-reactions`): Hold Like: reactions pop up, slide to one, it flies into the button. → `ReactionPickerDemo()` in `demos/like2/ReactionPickerDemo.kt`
-  Copy `ReactionPickerDemo.kt`, `Like2Style.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `ReactionPickerDemo.kt`; from `Like2Style.kt` only `StarPoints`, `star`, `starPoint`; from `demos/like/LikeStyle.kt` only `LikeColors`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Like pill** (`like2-pill`): Tap: a gradient spreads from the touch; "Like" morphs into "Liked". → `LikePillDemo()` in `demos/like2/LikePillDemo.kt`
-  Copy `LikePillDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `LikePillDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 - **Heartbeat** (`like2-heartbeat`): Tap: the heart beats twice, sending heart waves, and a pulse line spikes. → `HeartbeatDemo()` in `demos/like2/HeartbeatDemo.kt`
-  Copy `HeartbeatDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage`, `MenuStage` (showcase frame).
+  Copy `HeartbeatDemo.kt`; from `demos/like/LikeStyle.kt` only `LikeColors`, `drawLikeHeart`, `heart`; from `demos/menus/MenuStyle.kt` only `MenuColors`. Strip `LikeStage` (showcase frame).
 
 ## Theme & backgrounds
 
@@ -644,38 +614,36 @@ Dark/light theme switches and animated backgrounds.
 
 ### Theme switch
 
-Copy folder `demos/inktheme/`; platform actuals: `shared/src/androidMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.android.kt`, `shared/src/iosMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.ios.kt`. For a single animation use its own Copy line below.
+Copy folder `demos/inktheme/`; platform actuals: `shared/src/androidMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.android.kt`, `shared/src/iosMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.ios.kt`. To port one animation use its own Copy line below instead.
 
 - **Ink theme toggle** (`ink-theme`): Dark ↔ light spreads from the toggle like ink in water. → `InkThemeDemo()` in `demos/inktheme/InkThemeDemo.kt`
-  Copy `InkThemeDemo.kt`, `InkShader.kt`; `shared/src/androidMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.android.kt`; `shared/src/iosMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.ios.kt`.
+  Copy `InkThemeDemo.kt`; `InkShader.kt`; `shared/src/androidMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.android.kt`; `shared/src/iosMain/kotlin/com/azersun/uitemplates/demos/inktheme/InkShader.ios.kt`.
 
 ### Dark mode toggle
 
-Copy folder `demos/darkmode/` (drop the `darkModeToggleGroup` val in `DarkModeToggleDemos.kt`; it only registers the showcase). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/darkmode/` (drop the `darkModeToggleGroup` val in `DarkModeToggleDemos.kt`; it only registers the showcase). To port one animation use its own Copy line below instead.
 
 - **Portal open** (`darkmode-portal`): The new theme opens as a circle from the sun/moon button. → `ThemeToggleDemo(Reveal.Portal)` in `demos/darkmode/DarkModeToggleDemos.kt`
-  Copy `DarkModeToggleDemos.kt`, `ProfileCard.kt`. Strip `MenuStage` (showcase frame).
+  Copy `DarkModeToggleDemos.kt`; from `ProfileCard.kt` only `CardPadding`, `CardPalette`, `DarkCard`, `LightCard`, `ProfileCard`, `SettingRow`, `Switch`, `ToggleSize`, `drawBell`, `drawHalfCircle`, `drawMoon`, `drawSun`, `reportTop`. Strip `MenuStage` (showcase frame).
 - **Curtain drop** (`darkmode-curtain`): The new theme drops like a curtain as the moon falls in. → `ThemeToggleDemo(Reveal.Curtain)` in `demos/darkmode/DarkModeToggleDemos.kt`
-  Copy `DarkModeToggleDemos.kt`, `ProfileCard.kt`. Strip `MenuStage` (showcase frame).
+  Copy `DarkModeToggleDemos.kt`; from `ProfileCard.kt` only `CardPadding`, `CardPalette`, `DarkCard`, `LightCard`, `ProfileCard`, `SettingRow`, `Switch`, `ToggleSize`, `drawBell`, `drawHalfCircle`, `drawMoon`, `drawSun`, `reportTop`. Strip `MenuStage` (showcase frame).
 - **Line by line** (`darkmode-lines`): Rows switch theme one by one; the sun's rays tuck in. → `ThemeToggleDemo(Reveal.Lines)` in `demos/darkmode/DarkModeToggleDemos.kt`
-  Copy `DarkModeToggleDemos.kt`, `ProfileCard.kt`. Strip `MenuStage` (showcase frame).
+  Copy `DarkModeToggleDemos.kt`; from `ProfileCard.kt` only `CardPadding`, `CardPalette`, `DarkCard`, `LightCard`, `ProfileCard`, `SettingRow`, `Switch`, `ToggleSize`, `drawBell`, `drawHalfCircle`, `drawMoon`, `drawSun`, `reportTop`. Strip `MenuStage` (showcase frame).
 - **Theme flip** (`darkmode-flip`): The whole card flips in 3D; its back is the other theme. → `ThemeToggleDemo(Reveal.Flip)` in `demos/darkmode/DarkModeToggleDemos.kt`
-  Copy `DarkModeToggleDemos.kt`, `ProfileCard.kt`. Strip `MenuStage` (showcase frame).
+  Copy `DarkModeToggleDemos.kt`; from `ProfileCard.kt` only `CardPadding`, `CardPalette`, `DarkCard`, `LightCard`, `ProfileCard`, `SettingRow`, `Switch`, `ToggleSize`, `drawBell`, `drawHalfCircle`, `drawMoon`, `drawSun`, `reportTop`. Strip `MenuStage` (showcase frame).
 - **Eclipse slide** (`darkmode-eclipse`): A giant disc glides over the card like an eclipse. → `ThemeToggleDemo(Reveal.Eclipse)` in `demos/darkmode/DarkModeToggleDemos.kt`
-  Copy `DarkModeToggleDemos.kt`, `ProfileCard.kt`. Strip `MenuStage` (showcase frame).
+  Copy `DarkModeToggleDemos.kt`; from `ProfileCard.kt` only `CardPadding`, `CardPalette`, `DarkCard`, `LightCard`, `ProfileCard`, `SettingRow`, `Switch`, `ToggleSize`, `drawBell`, `drawHalfCircle`, `drawMoon`, `drawSun`, `reportTop`. Strip `MenuStage` (showcase frame).
 - **Clock sweep** (`darkmode-clock`): The new theme sweeps around like a clock hand; the icon spins. → `ThemeToggleDemo(Reveal.Clock)` in `demos/darkmode/DarkModeToggleDemos.kt`
-  Copy `DarkModeToggleDemos.kt`, `ProfileCard.kt`. Strip `MenuStage` (showcase frame).
+  Copy `DarkModeToggleDemos.kt`; from `ProfileCard.kt` only `CardPadding`, `CardPalette`, `DarkCard`, `LightCard`, `ProfileCard`, `SettingRow`, `Switch`, `ToggleSize`, `drawBell`, `drawHalfCircle`, `drawMoon`, `drawSun`, `reportTop`. Strip `MenuStage` (showcase frame).
 
 ### Backgrounds
 
-Copy folder `demos/backgrounds/` except `BackgroundsDemos.kt` (showcase registration). For a single animation use its own Copy line below.
-Whole set also needs: `demos/menus/MenuStyle.kt`.
+Copy folder `demos/backgrounds/` except `BackgroundsDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Mesh gradient** (`backgrounds-mesh`): Soft violet, cyan and pink blobs; each tap drifts them to new spots. → `MeshGradientDemo()` in `demos/backgrounds/MeshGradientDemo.kt`
-  Copy `MeshGradientDemo.kt`, `HeroStyle.kt`. Strip `HeroStage`, `MenuStage` (showcase frame).
+  Copy `MeshGradientDemo.kt`; from `HeroStyle.kt` only `rememberFrameSeconds`. Strip `HeroStage` (showcase frame).
 - **Aurora** (`backgrounds-aurora`): Glowing aurora bands sway; each tap makes them surge and brighten. → `AuroraBackgroundDemo()` in `demos/backgrounds/AuroraBackgroundDemo.kt`
-  Copy `AuroraBackgroundDemo.kt`, `HeroStyle.kt`. Strip `HeroStage`, `MenuStage` (showcase frame).
+  Copy `AuroraBackgroundDemo.kt`; from `HeroStyle.kt` only `rememberFrameSeconds`. Strip `HeroStage` (showcase frame).
 - **Noise texture** (`backgrounds-noise`): Film grain over a soft glow; each tap pulses the grain and the light. → `NoiseTextureDemo()` in `demos/backgrounds/NoiseTextureDemo.kt`
   Copy `NoiseTextureDemo.kt`. Strip `HeroStage` (showcase frame).
 - **Dot grid** (`backgrounds-dots`): A fading dot grid; each tap sends a ripple through the dots. → `DotGridDemo()` in `demos/backgrounds/DotGridDemo.kt`
@@ -683,7 +651,7 @@ Whole set also needs: `demos/menus/MenuStyle.kt`.
 - **Spotlight** (`backgrounds-spotlight`): A soft light glides to the tap and lights up the grid lines. → `SpotlightDemo()` in `demos/backgrounds/SpotlightDemo.kt`
   Copy `SpotlightDemo.kt`. Strip `HeroStage` (showcase frame).
 - **Animated gradient** (`backgrounds-gradient`): A slowly flowing gradient; each tap turns it to the next angle and hue. → `AnimatedGradientDemo()` in `demos/backgrounds/AnimatedGradientDemo.kt`
-  Copy `AnimatedGradientDemo.kt`, `HeroStyle.kt`. Strip `HeroStage`, `MenuStage` (showcase frame).
+  Copy `AnimatedGradientDemo.kt`; from `HeroStyle.kt` only `rememberFrameSeconds`. Strip `HeroStage` (showcase frame).
 
 ## Showpieces
 
@@ -691,7 +659,7 @@ Larger one-off scenes.
 
 ### Receipt checkout
 
-Copy folder `demos/receipt/` except `ReceiptDemos.kt` (showcase registration). For a single animation use its own Copy line below.
+Copy folder `demos/receipt/` except `ReceiptDemos.kt` (showcase registration). To port one animation use its own Copy line below instead.
 
 - **Printing receipt** (`receipt-print`): A thermal printer feeds the receipt; pay to tear it off. → `ReceiptCheckoutDemo()` in `demos/receipt/ReceiptCheckoutDemo.kt`
-  Copy `ReceiptCheckoutDemo.kt`, `ReceiptPaper.kt`, `ReceiptPrinter.kt`.
+  Copy `ReceiptCheckoutDemo.kt`; from `ReceiptPaper.kt` only `AmountRow`, `BarUnitTotal`, `BarUnits`, `Barcode`, `BeanLogo`, `DashedRule`, `EdgeShade`, `IntactPaper`, `Items`, `LineItem`, `Mono`, `PaperBrush`, `PaperShape`, `PaperTail`, `ReceiptColors`, `ReceiptPaper`, `ReceiptWidth`, `ToothDepth`, `ToothWidth`, `TornPaper`, `paperOutline`; from `ReceiptPrinter.kt` only `FloorGap`, `LabelStyle`, `PrinterHeight`, `SlotFromTop`, `ThermalPrinter`.

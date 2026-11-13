@@ -108,42 +108,33 @@ def package_of(path):
     return parts[1] if parts[0] == "demos" and len(parts) > 2 else None
 
 
-def dependencies(pkg):
-    """Files outside the package that its imports resolve to, followed transitively."""
-    needed, queue, seen = [], list(package_files(pkg)), set()
-    while queue:
-        path = queue.pop()
-        if path in seen:
-            continue
-        seen.add(path)
-        for full, other_pkg, symbol in IMPORT_RE.findall(path.read_text()):
-            directory = DEMOS / other_pkg if other_pkg else COMMON_MAIN / "common"
-            if other_pkg == pkg:
-                continue
-            target = find_definition(directory, symbol)
-            if target and target not in needed:
-                needed.append(target)
-                queue.append(target)
-    return sorted(needed)
-
-
-TOP_LEVEL_RE = re.compile(
-    r'^(?!private)(?:(?:internal|public|actual|expect|data|enum|sealed|inline|value|const|abstract|open)\s+)*'
+DECL_RE = re.compile(
+    r'^(?:@\w+(?:\([^)]*\))?\s+)*(private\s+)?(?:(?:internal|public|actual|expect|data|enum|sealed|inline|value|const|abstract|open|annotation)\s+)*'
     r'(?:fun\s+(?:<[^>]*>\s*)?(?:.+?\.)?(\w+)\s*\(|(?:val|var)\s+(?:.+?\.)?(\w+)\s*[:=]|(?:class|object|interface)\s+(\w+))',
     re.M,
 )
-_symbols = {}
+_decls = {}
 
 
-def symbols_of(path):
-    """Top-level declarations another file could use (private ones are file-local)."""
-    if path not in _symbols:
-        _symbols[path] = {next(g for g in m.groups() if g) for m in TOP_LEVEL_RE.finditer(path.read_text())}
-    return _symbols[path]
+def declarations(path):
+    """Top-level declarations of a file as [(name, private, text)], each running to the next one."""
+    if path not in _decls:
+        text = path.read_text()
+        matches = list(DECL_RE.finditer(text))
+        found = []
+        for index, m in enumerate(matches):
+            end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+            found.append((next(g for g in m.groups()[1:] if g), bool(m.group(1)), text[m.start():end]))
+        _decls[path] = found
+    return _decls[path]
 
 
-def used_in(text, names):
-    return {n for n in names if re.search(r"\b" + re.escape(n) + r"\b", text)}
+def imports_of(path):
+    return {symbol: (other_pkg, symbol) for _, other_pkg, symbol in IMPORT_RE.findall(path.read_text())}
+
+
+def mentions(text, name):
+    return re.search(r"\b" + re.escape(name) + r"\b", text) is not None
 
 
 def is_frame(symbol):
@@ -152,57 +143,62 @@ def is_frame(symbol):
 
 
 def needs_for(demo_path, registration):
-    """file -> symbols that file supplies to this animation, followed through every file it pulls in."""
+    """file -> declaration names this animation needs from it, following each declaration's own body.
+
+    The demo file is taken whole. From every other file only the declarations actually reached are kept,
+    so showcase-only parts of shared style files (stages, Replay pills) never enter the list.
+    """
     pkg = package_of(demo_path)
-    supplied, queue, seen = {}, [demo_path], set()
+    siblings = [f for f in (package_files(pkg) if pkg else []) if f.is_relative_to(COMMON_MAIN) and f != registration]
+    needed, frames = {}, set()
+    queue = [(demo_path, demo_path.read_text())]
+    visited = set()
     while queue:
-        path = queue.pop()
-        if path in seen:
-            continue
-        seen.add(path)
-        text = path.read_text()
-        sources = []
-        if pkg:
-            for other in package_files(pkg):
-                if other != path and other != registration and other.is_relative_to(COMMON_MAIN):
-                    sources.append((other, used_in(text, symbols_of(other) - symbols_of(path))))
-        for _, other_pkg, symbol in IMPORT_RE.findall(text):
+        path, text = queue.pop()
+        candidates = []
+        for other in siblings:
+            for name, private, body in declarations(other):
+                if other == path or not private:
+                    candidates.append((other, name, body))
+        for name, (other_pkg, symbol) in imports_of(path).items():
             if other_pkg == pkg:
                 continue
             directory = DEMOS / other_pkg if other_pkg else COMMON_MAIN / "common"
             target = find_definition(directory, symbol)
             if target:
-                sources.append((target, {symbol}))
-        for target, names in sources:
-            if not names:
+                candidates += [(target, n, b) for n, _, b in declarations(target) if n == symbol]
+        for target, name, body in candidates:
+            if target == demo_path or (target, name) in visited or not mentions(text, name):
                 continue
-            supplied.setdefault(target, set()).update(names)
-            if not all(is_frame(n) for n in names):
-                queue.append(target)
-    return supplied
+            if body is not None and text.strip() == body.strip():
+                continue
+            if is_frame(name):
+                frames.add(name)
+                continue
+            visited.add((target, name))
+            needed.setdefault(target, []).append(name)
+            queue.append((target, body))
+    return needed, frames
 
 
 def copy_line(demo_path, registration):
-    supplied = needs_for(demo_path, registration)
+    needed, frames = needs_for(demo_path, registration)
     pkg = package_of(demo_path)
-    keep, strip = [demo_path.name], []
-    for target, names in sorted(supplied.items()):
-        frames = sorted(n for n in names if is_frame(n))
-        real = sorted(n for n in names if not is_frame(n))
-        strip += [f"`{n}`" for n in frames]
-        if not real:
-            continue
-        if package_of(target) == pkg and target.is_relative_to(COMMON_MAIN):
-            keep.append(target.name)
+    parts = [f"`{demo_path.name}`"]
+    for target in sorted(needed, key=lambda f: (package_of(f) != pkg, rel(f))):
+        names = sorted(set(needed[target]))
+        where = target.name if package_of(target) == pkg else rel(target)
+        if "expect " in target.read_text():
+            # Platform actuals use the rest of an expect file too, so it goes whole.
+            parts.append(f"`{where}`")
         else:
-            keep.append(f"from `{rel(target)}` only {', '.join(f'`{n}`' for n in real)}")
-    if pkg and any("expect " in f.read_text() for f in [demo_path, *supplied] if package_of(f) == pkg):
-        keep += [f"`{rel(f)}`" for f in package_files(pkg) if not f.is_relative_to(COMMON_MAIN)]
-    own = [f"`{k}`" for k in keep if not k.startswith(("from", "`"))]
-    other = [k for k in keep if k.startswith(("from", "`"))]
-    line = "Copy " + "; ".join([", ".join(own), *other]) + "."
-    if strip:
-        line += " Strip " + ", ".join(sorted(set(strip))) + " (showcase frame)."
+            parts.append(f"from `{where}` only " + ", ".join(f"`{n}`" for n in names))
+    touched = [demo_path, *needed]
+    if pkg and any("expect " in f.read_text() for f in touched if package_of(f) == pkg):
+        parts += [f"`{rel(f)}`" for f in package_files(pkg) if not f.is_relative_to(COMMON_MAIN)]
+    line = "Copy " + "; ".join(parts) + "."
+    if frames:
+        line += " Strip " + ", ".join(f"`{n}`" for n in sorted(frames)) + " (showcase frame)."
     return line
 
 
@@ -295,7 +291,6 @@ def main():
             if shared_registration:
                 registration = None
             copy = [f for f in files if f != registration]
-            deps = dependencies(pkg) if pkg else []
             body += [f"### {group['title']}", ""]
             if pkg:
                 platform = [f for f in copy if not f.is_relative_to(COMMON_MAIN)]
@@ -306,9 +301,7 @@ def main():
                     line += f" (drop the `{gname}` val in `{group['file'].name}`; it only registers the showcase)"
                 if platform:
                     line += "; platform actuals: " + ", ".join(f"`{rel(f)}`" for f in platform)
-                body.append(line + ". For a single animation use its own Copy line below.")
-            if deps:
-                body.append("Whole set also needs: " + ", ".join(f"`{rel(f)}`" for f in deps) + ".")
+                body.append(line + ". To port one animation use its own Copy line below instead.")
             body.append("")
             for d in group["demos"]:
                 path = demo_file(d["composable"])
