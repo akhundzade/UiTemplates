@@ -50,7 +50,7 @@ def package_files(pkg):
 
 def find_definition(directory, symbol):
     pattern = re.compile(
-        r'^\s*(?:(?:internal|private|public|actual|expect|data|enum|sealed|inline|value|const)\s+)*'
+        r'^(?:(?:internal|private|public|actual|expect|data|enum|sealed|inline|value|const)\s+)*'
         r'(?:fun|val|var|class|object|interface)\s+(?:<[^>]*>\s*)?(?:[\w.]+\.)?' + re.escape(symbol) + r'\b',
         re.M,
     )
@@ -127,6 +127,121 @@ def dependencies(pkg):
     return sorted(needed)
 
 
+TOP_LEVEL_RE = re.compile(
+    r'^(?!private)(?:(?:internal|public|actual|expect|data|enum|sealed|inline|value|const|abstract|open)\s+)*'
+    r'(?:fun\s+(?:<[^>]*>\s*)?(?:.+?\.)?(\w+)\s*\(|(?:val|var)\s+(?:.+?\.)?(\w+)\s*[:=]|(?:class|object|interface)\s+(\w+))',
+    re.M,
+)
+_symbols = {}
+
+
+def symbols_of(path):
+    """Top-level declarations another file could use (private ones are file-local)."""
+    if path not in _symbols:
+        _symbols[path] = {next(g for g in m.groups() if g) for m in TOP_LEVEL_RE.finditer(path.read_text())}
+    return _symbols[path]
+
+
+def used_in(text, names):
+    return {n for n in names if re.search(r"\b" + re.escape(n) + r"\b", text)}
+
+
+def is_frame(symbol):
+    """`*Stage` composables only draw the showcase card, caption, autoplay and Replay pill."""
+    return symbol.endswith("Stage")
+
+
+def needs_for(demo_path, registration):
+    """file -> symbols that file supplies to this animation, followed through every file it pulls in."""
+    pkg = package_of(demo_path)
+    supplied, queue, seen = {}, [demo_path], set()
+    while queue:
+        path = queue.pop()
+        if path in seen:
+            continue
+        seen.add(path)
+        text = path.read_text()
+        sources = []
+        if pkg:
+            for other in package_files(pkg):
+                if other != path and other != registration and other.is_relative_to(COMMON_MAIN):
+                    sources.append((other, used_in(text, symbols_of(other) - symbols_of(path))))
+        for _, other_pkg, symbol in IMPORT_RE.findall(text):
+            if other_pkg == pkg:
+                continue
+            directory = DEMOS / other_pkg if other_pkg else COMMON_MAIN / "common"
+            target = find_definition(directory, symbol)
+            if target:
+                sources.append((target, {symbol}))
+        for target, names in sources:
+            if not names:
+                continue
+            supplied.setdefault(target, set()).update(names)
+            if not all(is_frame(n) for n in names):
+                queue.append(target)
+    return supplied
+
+
+def copy_line(demo_path, registration):
+    supplied = needs_for(demo_path, registration)
+    pkg = package_of(demo_path)
+    keep, strip = [demo_path.name], []
+    for target, names in sorted(supplied.items()):
+        frames = sorted(n for n in names if is_frame(n))
+        real = sorted(n for n in names if not is_frame(n))
+        strip += [f"`{n}`" for n in frames]
+        if not real:
+            continue
+        if package_of(target) == pkg and target.is_relative_to(COMMON_MAIN):
+            keep.append(target.name)
+        else:
+            keep.append(f"from `{rel(target)}` only {', '.join(f'`{n}`' for n in real)}")
+    if pkg and any("expect " in f.read_text() for f in [demo_path, *supplied] if package_of(f) == pkg):
+        keep += [f"`{rel(f)}`" for f in package_files(pkg) if not f.is_relative_to(COMMON_MAIN)]
+    own = [f"`{k}`" for k in keep if not k.startswith(("from", "`"))]
+    other = [k for k in keep if k.startswith(("from", "`"))]
+    line = "Copy " + "; ".join([", ".join(own), *other]) + "."
+    if strip:
+        line += " Strip " + ", ".join(sorted(set(strip))) + " (showcase frame)."
+    return line
+
+
+KEYWORDS = [
+    ("spring / bounce / overshoot", r"spring|bounc|overshoot"),
+    ("squash / squish / jelly / wobble", r"squash|squish|jelly|wobbl|jiggl"),
+    ("stretch / goo / blob", r"stretch|goo|blob|liquid drop"),
+    ("flip / 3D / hinge", r"flip|3d|hinge|turnstile|barrel|twist"),
+    ("spin / rotate", r"spin|rotat|rolls"),
+    ("ripple / ring / pulse / echo", r"ripple|ring|pulse|echo|halo"),
+    ("glow / neon / shine / sparkle", r"glow|neon|shine|sparkl|twinkl|shimmer"),
+    ("liquid / wave / fill / ink", r"liquid|wav|fills? |ink"),
+    ("confetti / burst / particles / sparks", r"confetti|burst|particle|spark|dust|pixel|crumbl"),
+    ("shake / error", r"shake|error|wrong|fail|declin"),
+    ("morph / shape change", r"morph|becomes|turns into|bends into"),
+    ("stagger / one by one", r"stagger|one by one|one after another|in turn"),
+    ("slide / swipe / drag", r"slide|swipe|drag"),
+    ("drop / fall / gravity", r"drop|fall|lands"),
+    ("fold / unfold / unroll / blinds", r"fold|unroll|blind|curtain|door"),
+    ("draw / trace / stroke", r"draws|trace|stroke|scribbl"),
+    ("count / roll / odometer / numbers", r"count|odometer|digit|number|flap"),
+    ("blur / focus / depth", r"blur|focus|depth|tilt"),
+    ("typing / text letters", r"letter|types|typing|word"),
+    ("press / hold / long-press", r"press|hold"),
+    ("reveal / wipe / clip", r"reveal|wipe|sweep|portal|eclipse|circle grows"),
+]
+
+
+def keyword_index(entries):
+    lines = ["## Motion index", "",
+             "Animations grouped by the kind of motion in their description. An id can appear under several headings.", ""]
+    for label, pattern in KEYWORDS:
+        rx = re.compile(r"\b(?:" + pattern + ")")
+        ids = [e["id"] for e in entries if rx.search(e["text"].lower())]
+        if ids:
+            lines.append(f"- **{label}**: " + ", ".join(f"`{i}`" for i in ids))
+    return lines + [""]
+
+
 def main():
     demos_kt = (COMMON_MAIN / "showcase" / "Demos.kt").read_text()
     groups = collect_groups()
@@ -152,8 +267,9 @@ def main():
         "",
         "Paths are relative to `shared/src/commonMain/kotlin/com/azersun/uitemplates/` unless they start with `shared/`.",
         "",
-        "Search this file for words that describe the motion you want (\"spring\", \"confetti\", \"flip\", "
-        "\"ripple\", \"shake\", \"liquid\", \"3D\", \"stagger\"...) as well as for the component (\"switch\", \"menu\"...).",
+        "Find animations by component (categories below) or by motion (the motion index), then read the entry: "
+        "its Copy line is the minimal set of files for that one animation, and Strip names the showcase-only "
+        "wrapper to remove after copying.",
         "",
         "## Categories",
         "",
@@ -164,8 +280,9 @@ def main():
                      f"({count}) — {c['blurb']}")
     lines.append("")
 
+    entries, body = [], []
     for c in categories:
-        lines += [f"## {c['title']}", "", c["blurb"] + ".", ""]
+        body += [f"## {c['title']}", "", c["blurb"] + ".", ""]
         for gname in c["groups"]:
             group = groups[gname]
             # Sets registered straight in showcase/Demos.kt live in the package of their demo file.
@@ -179,7 +296,7 @@ def main():
                 registration = None
             copy = [f for f in files if f != registration]
             deps = dependencies(pkg) if pkg else []
-            lines += [f"### {group['title']}", ""]
+            body += [f"### {group['title']}", ""]
             if pkg:
                 platform = [f for f in copy if not f.is_relative_to(COMMON_MAIN)]
                 line = f"Copy folder `demos/{pkg}/`"
@@ -189,19 +306,23 @@ def main():
                     line += f" (drop the `{gname}` val in `{group['file'].name}`; it only registers the showcase)"
                 if platform:
                     line += "; platform actuals: " + ", ".join(f"`{rel(f)}`" for f in platform)
-                lines.append(line + ".")
+                body.append(line + ". For a single animation use its own Copy line below.")
             if deps:
-                lines.append("Also needs: " + ", ".join(f"`{rel(f)}`" for f in deps) + ".")
-            lines.append("")
+                body.append("Whole set also needs: " + ", ".join(f"`{rel(f)}`" for f in deps) + ".")
+            body.append("")
             for d in group["demos"]:
                 path = demo_file(d["composable"])
                 where = f"`{d['call']}` in `{rel(path)}`" if path else f"`{d['call']}`"
                 text = caption_for(path, d["title"], d["subtitle"]).rstrip()
                 if text[-1] not in ".!?":
                     text += "."
-                lines.append(f"- **{d['title']}** (`{d['id']}`): {text} → {where}")
-            lines.append("")
+                body.append(f"- **{d['title']}** (`{d['id']}`): {text} → {where}")
+                if path:
+                    body.append(f"  {copy_line(path, registration or group['file'])}")
+                entries.append({"id": d["id"], "text": f"{d['title']} {text} {d['subtitle']}"})
+            body.append("")
 
+    lines += keyword_index(entries) + body
     OUT.write_text("\n".join(lines).rstrip() + "\n")
     print(f"Wrote {rel(OUT)}: {total} animations, {len(categories)} categories")
 
