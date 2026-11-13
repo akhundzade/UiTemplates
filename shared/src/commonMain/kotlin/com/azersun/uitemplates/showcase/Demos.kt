@@ -13,6 +13,7 @@ import com.azersun.uitemplates.demos.follow.followButtonGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.inputerror.inputErrorGroup
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
+import com.azersun.uitemplates.demos.like.likeGroup
 import com.azersun.uitemplates.demos.menulight.minimalMenuGroup
 import com.azersun.uitemplates.demos.menus.BottomSheetDemo
 import com.azersun.uitemplates.demos.menus.CircleRevealDemo
@@ -27,6 +28,7 @@ import com.azersun.uitemplates.demos.progresssteps.progressStepsGroup
 import com.azersun.uitemplates.demos.pullrefresh.pullRefreshGroup
 import com.azersun.uitemplates.demos.stepper.stepperGroup
 import com.azersun.uitemplates.demos.swipedelete.swipeDeleteGroup
+import com.azersun.uitemplates.demos.textfield.textFieldGroup
 import com.azersun.uitemplates.demos.viewas.viewAsMenuGroup
 
 class Demo(
@@ -81,4 +83,6 @@ val demoGroups: List<DemoGroup> = listOf(
     playButtonGroup,
     buttonStateGroup,
     progressStepsGroup,
+    textFieldGroup,
+    likeGroup,
 )
