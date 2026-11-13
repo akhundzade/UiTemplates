@@ -28,6 +28,8 @@ import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -66,6 +68,8 @@ fun Showcase() {
     MaterialTheme(colorScheme = darkColorScheme()) {
         var openDemoId by rememberSaveable { mutableStateOf<String?>(null) }
         val openDemo = allDemos.firstOrNull { it.id == openDemoId }
+        // Hoisted so the list keeps its scroll position when coming back from a demo.
+        val listState = rememberLazyListState()
 
         NavigationBackHandler(
             state = rememberNavigationEventState(NavigationEventInfo.None),
@@ -85,7 +89,7 @@ fun Showcase() {
             label = "showcase",
         ) { demo ->
             if (demo == null) {
-                HomeScreen(onOpen = { openDemoId = it.id })
+                HomeScreen(listState, onOpen = { openDemoId = it.id })
             } else {
                 DemoScreen(demo, onBack = { openDemoId = null })
             }
@@ -94,9 +98,10 @@ fun Showcase() {
 }
 
 @Composable
-private fun HomeScreen(onOpen: (Demo) -> Unit) {
+private fun HomeScreen(listState: LazyListState, onOpen: (Demo) -> Unit) {
     val numbers = allDemos.withIndex().associate { (index, demo) -> demo.id to index + 1 }
     LazyColumn(
+        state = listState,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
