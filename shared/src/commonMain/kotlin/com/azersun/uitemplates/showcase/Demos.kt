@@ -1,6 +1,10 @@
 package com.azersun.uitemplates.showcase
 
 import androidx.compose.runtime.Composable
+import com.azersun.uitemplates.demos.clinic.BroadcastDemo
+import com.azersun.uitemplates.demos.clinic.InboxDemo
+import com.azersun.uitemplates.demos.clinic.PageSwitchDemo
+import com.azersun.uitemplates.demos.clinic.PatientFlowDemo
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
 import com.azersun.uitemplates.demos.menus.BottomSheetDemo
@@ -41,6 +45,15 @@ val demoGroups: List<DemoGroup> = listOf(
             Demo("bottom-sheet", "Bottom sheet", "Springs up over a dim, icons pop in one by one", { BottomSheetDemo() }),
             Demo("dropdown", "Staggered dropdown", "Chevron flips, card unfolds, items slide in", { StaggeredDropdownDemo() }),
             Demo("circle-reveal", "Circle reveal", "A circle grows from ☰ to fill the screen", { CircleRevealDemo() }),
+        ),
+    ),
+    DemoGroup(
+        "Clinic dashboard",
+        listOf(
+            Demo("patient-flow", "Patient flow", "Call in moves a card between lists, with undo", { PatientFlowDemo() }),
+            Demo("inbox", "Inbox reply", "Open a chat, quick reply types in, ticks turn blue", { InboxDemo() }),
+            Demo("broadcast", "Broadcast send", "Blurred confirm, then live delivery progress bars", { BroadcastDemo() }),
+            Demo("page-switch", "Page switching", "Rail indicator slides, pages fade through, counters roll", { PageSwitchDemo() }),
         ),
     ),
 )
