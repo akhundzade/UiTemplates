@@ -12,12 +12,14 @@ import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
 import com.azersun.uitemplates.demos.datepicker.datePickerGroup
 import com.azersun.uitemplates.demos.dialog.dialogGroup
+import com.azersun.uitemplates.demos.error2.errorPart2Group
 import com.azersun.uitemplates.demos.fab2.floatingButtonGroup
 import com.azersun.uitemplates.demos.follow.followButtonGroup
 import com.azersun.uitemplates.demos.inktheme.InkThemeDemo
 import com.azersun.uitemplates.demos.inputerror.inputErrorGroup
 import com.azersun.uitemplates.demos.kanban.KanbanDemo
 import com.azersun.uitemplates.demos.like.likeGroup
+import com.azersun.uitemplates.demos.like2.likePart2Group
 import com.azersun.uitemplates.demos.menulight.minimalMenuGroup
 import com.azersun.uitemplates.demos.menus.BottomSheetDemo
 import com.azersun.uitemplates.demos.menus.CircleRevealDemo
@@ -101,4 +103,6 @@ val demoGroups: List<DemoGroup> = listOf(
     checkboxPart2Group,
     buttonPart2Group,
     switchPart2Group,
+    errorPart2Group,
+    likePart2Group,
 )
