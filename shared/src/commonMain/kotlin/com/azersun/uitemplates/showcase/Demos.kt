@@ -52,61 +52,106 @@ class Demo(
 
 class DemoGroup(val title: String, val demos: List<Demo>)
 
-val demoGroups: List<DemoGroup> = listOf(
-    DemoGroup(
-        "Kanban CRM",
-        listOf(
-            Demo("kanban", "Drag & drop board", "Lift, tilt, column glow, confetti and counters", { KanbanDemo() }),
-        ),
+class DemoCategory(val id: String, val title: String, val blurb: String, val groups: List<DemoGroup>) {
+    val demoCount: Int get() = groups.sumOf { it.demos.size }
+}
+
+private val kanbanGroup = DemoGroup(
+    "Kanban CRM",
+    listOf(
+        Demo("kanban", "Drag & drop board", "Lift, tilt, column glow, confetti and counters", { KanbanDemo() }),
     ),
-    DemoGroup(
-        "Theme switch",
-        listOf(
-            Demo("ink-theme", "Ink theme toggle", "Dark ↔ light spreads from the toggle like ink in water", { InkThemeDemo() }),
-        ),
-    ),
-    DemoGroup(
-        "Menus",
-        listOf(
-            Demo("hamburger", "Hamburger morph", "Bars slide together, then spin into an ✕", { HamburgerMorphDemo() }),
-            Demo("drawer", "Side drawer", "Springs in from the left, page dims, rows stagger", { SideDrawerDemo() }),
-            Demo("fab-fan", "FAB fan", "+ turns into ✕ as five actions fan out on an arc", { FabFanDemo() }),
-            Demo("bottom-sheet", "Bottom sheet", "Springs up over a dim, icons pop in one by one", { BottomSheetDemo() }),
-            Demo("dropdown", "Staggered dropdown", "Chevron flips, card unfolds, items slide in", { StaggeredDropdownDemo() }),
-            Demo("circle-reveal", "Circle reveal", "A circle grows from ☰ to fill the screen", { CircleRevealDemo() }),
-        ),
-    ),
-    viewAsMenuGroup,
-    darkModeToggleGroup,
-    backgroundsGroup,
-    stepperGroup,
-    inputErrorGroup,
-    otpGroup,
-    passwordStrengthGroup,
-    swipeDeleteGroup,
-    addToCartGroup,
-    counterGroup,
-    pullRefreshGroup,
-    datePickerGroup,
-    dialogGroup,
-    minimalMenuGroup,
-    followButtonGroup,
-    colorPickerGroup,
-    playButtonGroup,
-    buttonStateGroup,
-    progressStepsGroup,
-    textFieldGroup,
-    likeGroup,
-    floatingButtonGroup,
-    screenTransitionGroup,
-    receiptGroup,
-    searchGroup,
-    checkboxPart1Group,
-    checkboxPart2Group,
-    buttonPart2Group,
-    switchPart2Group,
-    errorPart2Group,
-    likePart2Group,
-    switchPart1Group,
-    errorPart1Group,
 )
+
+private val inkThemeGroup = DemoGroup(
+    "Theme switch",
+    listOf(
+        Demo("ink-theme", "Ink theme toggle", "Dark ↔ light spreads from the toggle like ink in water", { InkThemeDemo() }),
+    ),
+)
+
+private val coreMenusGroup = DemoGroup(
+    "Menus",
+    listOf(
+        Demo("hamburger", "Hamburger morph", "Bars slide together, then spin into an ✕", { HamburgerMorphDemo() }),
+        Demo("drawer", "Side drawer", "Springs in from the left, page dims, rows stagger", { SideDrawerDemo() }),
+        Demo("fab-fan", "FAB fan", "+ turns into ✕ as five actions fan out on an arc", { FabFanDemo() }),
+        Demo("bottom-sheet", "Bottom sheet", "Springs up over a dim, icons pop in one by one", { BottomSheetDemo() }),
+        Demo("dropdown", "Staggered dropdown", "Chevron flips, card unfolds, items slide in", { StaggeredDropdownDemo() }),
+        Demo("circle-reveal", "Circle reveal", "A circle grows from ☰ to fill the screen", { CircleRevealDemo() }),
+    ),
+)
+
+val demoCategories: List<DemoCategory> = listOf(
+    DemoCategory(
+        "buttons",
+        "Buttons & actions",
+        "Press feedback, state changes, play, follow and add to cart",
+        listOf(buttonStateGroup, buttonPart2Group, playButtonGroup, followButtonGroup, addToCartGroup),
+    ),
+    DemoCategory(
+        "toggles",
+        "Toggles & selection",
+        "Switches, checkboxes, steppers, swatches and date pickers",
+        listOf(
+            switchPart1Group,
+            switchPart2Group,
+            checkboxPart1Group,
+            checkboxPart2Group,
+            stepperGroup,
+            colorPickerGroup,
+            datePickerGroup,
+        ),
+    ),
+    DemoCategory(
+        "navigation",
+        "Menus & navigation",
+        "Menus, floating buttons, dialogs and screen transitions",
+        listOf(
+            coreMenusGroup,
+            viewAsMenuGroup,
+            minimalMenuGroup,
+            floatingButtonGroup,
+            dialogGroup,
+            screenTransitionGroup,
+        ),
+    ),
+    DemoCategory(
+        "forms",
+        "Text & forms",
+        "Text fields, validation, passwords, codes and search",
+        listOf(textFieldGroup, inputErrorGroup, passwordStrengthGroup, otpGroup, searchGroup),
+    ),
+    DemoCategory(
+        "feedback",
+        "Feedback & errors",
+        "Error states, progress steps and pull to refresh",
+        listOf(errorPart1Group, errorPart2Group, progressStepsGroup, pullRefreshGroup),
+    ),
+    DemoCategory(
+        "lists",
+        "Lists & data",
+        "Drag and drop, swipe to delete and number counters",
+        listOf(kanbanGroup, swipeDeleteGroup, counterGroup),
+    ),
+    DemoCategory(
+        "social",
+        "Likes & reactions",
+        "Hearts, stars, bookmarks and reaction pickers",
+        listOf(likeGroup, likePart2Group),
+    ),
+    DemoCategory(
+        "theme",
+        "Theme & backgrounds",
+        "Dark/light theme switches and animated backgrounds",
+        listOf(inkThemeGroup, darkModeToggleGroup, backgroundsGroup),
+    ),
+    DemoCategory(
+        "showpieces",
+        "Showpieces",
+        "Larger one-off scenes",
+        listOf(receiptGroup),
+    ),
+)
+
+val demoGroups: List<DemoGroup> get() = demoCategories.flatMap { it.groups }
