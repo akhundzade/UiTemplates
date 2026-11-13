@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import com.azersun.uitemplates.demos.addtocart.addToCartGroup
 import com.azersun.uitemplates.demos.backgrounds.backgroundsGroup
 import com.azersun.uitemplates.demos.buttonstate.buttonStateGroup
+import com.azersun.uitemplates.demos.checkbox1.checkboxPart1Group
+import com.azersun.uitemplates.demos.checkbox2.checkboxPart2Group
 import com.azersun.uitemplates.demos.colorpicker.colorPickerGroup
 import com.azersun.uitemplates.demos.counter.counterGroup
 import com.azersun.uitemplates.demos.darkmode.darkModeToggleGroup
@@ -93,4 +95,6 @@ val demoGroups: List<DemoGroup> = listOf(
     screenTransitionGroup,
     receiptGroup,
     searchGroup,
+    checkboxPart1Group,
+    checkboxPart2Group,
 )
